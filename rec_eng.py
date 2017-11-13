@@ -114,16 +114,8 @@ def encode_test(test_sample):
             test_sample[feature] = encoder.transform([test_sample[feature]])[0]
 
 
-if __name__ == '__main__':
-    test_sample = {"Age": 45,  # (16 - 99)
-                   "Behavior": "Passive",  # (0 - 3)
-                   "Location": "NE",  # (0 - 3)
-                   "Parking Space": "Parkinglot/R|Street",  # (0 - 14)
-                   "Purpose": "Commuting",  # (0 - 62)
-                   "Usage": 15}  # (1 - 30)
+def get_rec(test_sample):
 
     encode_test(test_sample)
 
-    pred = get_recommendations(list(test_sample.values()))
-
-    print(pred)
+    return get_recommendations(list(test_sample.values()))

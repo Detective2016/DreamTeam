@@ -1,13 +1,9 @@
 import logging
-import recommendation as re
+import rec_eng as re
 from flask import Flask, render_template
 
 # This defines a Flask application
 app = Flask(__name__)
-
-# variables to adjust
-dictionary = {'Age': 16, 'Behavior': 0, 'Location': 'NY', 'Parking': 'Indoor', 'Purpose': 0, 'Usage': 0}
-package = {'Keyloss': 1, 'Paint': 1, 'Tires': 1, "Windshield": 1, "User": ['Andreas just bought keyloss protection']}
 
 # Magical annotations define URL routing via the Flask application
 @app.route('/')
@@ -35,16 +31,26 @@ def server_error(e):
     See logs for full stacktrace.
     """.format(e), 500
 
-def process_input(dict):
-    recommended_package = re.provide_recommendation(dict)
-    for key, value in recommended_package.items():
-        print("key: " + key + " value: " + value)
-        package[key] = value
 
+def process_input(test):
+    return re.get_rec(test)
 
 
 # This allows you to run locally.
 # When run in GCP, Gunicorn is used instead (see entrypoint in app.yaml) to
 # Access the Flack app via WSGI
+
+# variables to adjust
+test = {"Age": 25,  # (16 - 99)
+           "Behavior": "Neutral",  # (0 - 3)
+           "Location": "S",  # (0 - 3)
+           "Parking Space": "Parkinglot/R|Parkinglot",  # (0 - 14)
+           "Purpose": "Working|Commuting|Racing",  # (0 - 62)
+           "Usage": 10}  # (1 - 30)
+
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+
+    print(process_input(test))
+
+    app.run(host='127.0.0.1', port=8080)
+
