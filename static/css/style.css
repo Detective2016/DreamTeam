@@ -1,0 +1,104 @@
+html {
+  margin: 0;
+  height: 100%;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+  height: 100%;
+}
+/* stylesheet for your custom graph */
+.states {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+.states-choropleth {
+  fill: #ccc;
+}
+#tooltip-container {
+  position: absolute;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border: 1px solid;
+  display: none;
+}
+.tooltip_key {
+  font-weight: bold;
+}
+.tooltip_value {
+  margin-left: 20px;
+  float: right;
+}
+#zipInputButton {
+  background: #2698e3;
+  background-image: linear-gradient(to bottom, #2698e3, #236c99);
+  border-radius: 15px;
+  text-shadow: 1px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  width: 60px;
+  font-family: OpenSans-Bold;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+}
+
+#map {
+  height: 100px;
+  width: 1000px;
+}
+
+#zipInputButton:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+#zip_input {
+  height: 30px;
+  margin: auto;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: -0.41px;
+  text-align: center;
+}
+
+#container {
+  margin: auto;
+  position:absolute;
+  width:1000px;
+  height:100px;
+  left:20%;
+  top:20%;
+  margin-left:-50px;
+  margin-top:-50px;
+}
+
+#grad {
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%);
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+#zip_input_text {
+  color: white;
+  margin: auto;
+}
+
+#header {
+  color: white;
+  font-family: OpenSans-Bold;
+  font-size: 30px;
+  color: #FFFFFF;
+  letter-spacing: -0.41px;
+  margin: auto;
+}
