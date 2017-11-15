@@ -8,9 +8,10 @@ import pickle
 anclr_products = ['Keyloss', 'Paint', 'Tires', 'Windshield']
 
 
+# Complete copy of np.mode with some modifications
 def get_mode(a, axis=0):
     a = np.array(a)
-    scores = np.unique(np.ravel(a))       # get ALL unique values
+    scores = np.unique(np.ravel(a)) 
     testshape = list(a.shape)
     testshape[axis] = 1
     oldmostfreq = np.zeros(testshape)
@@ -29,60 +30,63 @@ def get_mode(a, axis=0):
 def read_data():
     data = pd.read_csv("formated_data.csv")
     data = data.iloc[:200000]
-    data = data[(data['Keyloss'] != 0) |
+    data = data[(data['Keyloss'] != 0) | 
                 (data['Paint'] != 0) |
                 (data['Windshield'] != 0) |
                 (data['Tires'] != 0)]
-
-    y_values = data[anclr_products]
+    
+    y_values = data[anclr_products]  
     y_values = [data[product] for product in anclr_products]
     y_values = np.array(y_values).T
     # Delete columns with products
     X = np.array(data.drop(anclr_products, axis=1))
-
+    
     return data, X, y_values
 
 
+# Find users like you (sometimes fails due to the lack of similar users)
 def get_similar_users(test_sample):
+    
     def shrink_data(data, test_sample):
-        data_shrinked = data[(data['Age'] < test_sample[0] + 5) &
-                             (data['Age'] > test_sample[0] - 5) &
-                             (data['Behavior'] == test_sample[1]) &
-                             (data['Location'] == test_sample[2]) &
-                             (data['Usage'] < test_sample[-1] + 5) &
-                             (data['Usage'] > test_sample[-1] - 5)]
-
-        data_shrinked = data_shrinked[(data_shrinked['Behavior'] == test_sample[1]) &
-                                      (data_shrinked['Location'] == test_sample[2])]
-
+        data_shrinked = data[(data['Age'] < test_sample[0]+5) & 
+                     (data['Age'] > test_sample[0]-5) &
+                     (data['Behavior'] == test_sample[1]) & 
+                     (data['Location'] == test_sample[2]) &
+                     (data['Usage'] < test_sample[-1]+5) & 
+                     (data['Usage'] > test_sample[-1]-5)]
+        
+        data_shrinked = data_shrinked[(data_shrinked['Behavior'] == test_sample[1]) & 
+                              (data_shrinked['Location'] == test_sample[2])]
+        
         return data_shrinked
-
+    
     def binary_encoding(data):
-        return data['Keyloss'] * 8 + data['Paint'] * 4 + data['Windshield'] * 2 + data['Tires'] * 1
-
+        return data['Keyloss']*8+data['Paint']*4+data['Windshield']*2+data['Tires']*1
+    
     def masking(data, selectors):
         # compress('ABCDEF', [1,0,1,0,1,1]) --> A C E F
         return list(d for d, s in zip(data, selectors) if s)
-
+    
     data, X, y_values = read_data()
-
+        
     binary = binary_encoding(data)
-
+    
     c = dict(Counter(binary))
-
+    
     # Pick 5 most common bundles except 0 and convert to binary
     bundles_keys = [bin(num)[2:].zfill(4) for num in sorted(c, key=c.get, reverse=True)[:5]]
-
+    
     data_shrinked = shrink_data(data, test_sample)
-
+        
     data_bundles = np.array(data_shrinked[anclr_products])
-
-    relevant_bundles = [''.join(map(str, bundle)) for bundle in data_bundles
+    
+    relevant_bundles = [''.join(map(str, bundle)) for bundle in data_bundles 
                         if ''.join(map(str, bundle)) in bundles_keys]
-
+    
+    
     top_bundle = list(get_mode(relevant_bundles, axis=0)[0][0])
     top_bundle = [int(prod) for prod in top_bundle]
-
+    
     return masking(anclr_products, top_bundle)
 
 
@@ -93,17 +97,26 @@ def get_recommendations(test_sample):
                    "Tires": 0,
                    "Windshield": 0,
                    "User": 0}
-
+    
     for i, y in enumerate(anclr_products):
         model = pickle.load(open('Saved_Files/' + y + '.sav', 'rb'))
-        predictions[y] += model.predict(np.array(test_sample).reshape(1, -1))[0]
+        predictions[y] += model.predict_proba(np.array(test_sample).reshape(1, -1))[0][1]
+    
+    
+    most_probable = sorted(list(predictions.values()))[-2:]
+    for key, value in predictions.items():
+        if value in most_probable:
+            predictions[key] = 1
+        else:
+            predictions[key] = 0
 
     similar = get_similar_users(test_sample)
     predictions["User"] = similar
-
+      
     return predictions
 
 
+# Extract label encoders and transform test sample
 def encode_test(test_sample):
     features_to_transform = ["Behavior", "Location", "Parking Space", "Purpose"]
     for feature in features_to_transform:
@@ -115,7 +128,13 @@ def encode_test(test_sample):
 
 
 def get_rec(test_sample):
-
     encode_test(test_sample)
-
     return get_recommendations(list(test_sample.values()))
+
+# Call get_rec with such format
+#test_sample = {"Age": 24, # (16 - 99)
+#               "Behavior": "Aggressive", # (Passive - Neutral - Aggressive)
+ #              "Location": "W", #(W, MW, NE, S)
+  #             "Parking Space": "Garage|Parkinglot/R|Street", # (Garage, Parkinglot, Parkinglot/R, Street)
+   #            "Purpose": "Commuting", # (Racing, Leisure, Working, Commuting, Traveling)
+    #           "Usage": 15} # (1 - 30)
