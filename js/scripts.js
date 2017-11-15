@@ -50,8 +50,26 @@ $(document).ready(function() {
 		$('.sec-2').removeClass('display-n');
 	});
 	$('#n-2').click(function(){
-		$('.sec-2').addClass('display-n');
-		$('.sec-3').removeClass('display-n');
+	    $('.sec-2').addClass('display-n');
+        $('.sec-3').removeClass('display-n');
+		$.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+        var driving_style = document.getElementById('driving_style').value;
+        var data = JSON.stringify({
+            driving_style: `${driving_style}`
+        });
+        $.ajax({
+            url: '/driving_style',
+            type: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: data,
+            success: function(response){
+                alert(response.age)
+            }
+        })
 	});
 	$('#n-3').click(function(){
 		$('.sec-3').addClass('display-n');

@@ -1,18 +1,31 @@
 import logging
 import rec_eng as re
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, Response, jsonify
+from werkzeug.exceptions import BadRequest, NotFound, UnsupportedMediaType, Unauthorized
 
 # This defines a Flask application
 app = Flask(__name__, static_url_path='')
 
-# Magical annotations define URL routing via the Flask application
+# variables to adjust
+criterias = {"Age": 25,  # (16 - 99)
+             "Behavior": "Neutral",  # (0 - 3)
+             "Location": "S",  # (0 - 3)
+             "Parking Space": "Parkinglot/R|Parkinglot",  # (0 - 14)
+             "Purpose": "Working|Commuting|Racing",  # (0 - 62)
+             "Usage": 10}  # (1 - 30)
+recommendation = {}
+
+def translate_to_json():
+    return jsonify(
+        age=criterias["Age"]
+    )
+
 @app.route('/')
 def root():
     return render_template('index.html')
 
 @app.route('/js/<path:path>')
 def send_js(path):
-    print(path)
     return send_from_directory('js', path)
 
 @app.route('/css/<path:path>')
@@ -35,10 +48,18 @@ def recommendation():
 def population():
     return render_template('population.csv')
 
-@app.route("/login")
-def do_login():
-    username = "foo"
-    return username
+@app.route("/driving_style", methods=['POST'])
+def input_driving_style():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    if body.get('driving_style') is None:
+        raise BadRequest('missing driving_style')
+
+    print(body.get('driving_style'))
+
+    return translate_to_json()
 
 @app.errorhandler(500)
 def server_error(e):
@@ -52,22 +73,8 @@ def server_error(e):
 def process_input(test):
     return re.get_rec(test)
 
-
-# This allows you to run locally.
-# When run in GCP, Gunicorn is used instead (see entrypoint in app.yaml) to
-# Access the Flack app via WSGI
-
-# variables to adjust
-test = {"Age": 25,  # (16 - 99)
-           "Behavior": "Neutral",  # (0 - 3)
-           "Location": "S",  # (0 - 3)
-           "Parking Space": "Parkinglot/R|Parkinglot",  # (0 - 14)
-           "Purpose": "Working|Commuting|Racing",  # (0 - 62)
-           "Usage": 10}  # (1 - 30)
-
 if __name__ == '__main__':
-
-    print(process_input(test))
-
+    recommendation = process_input(criterias)
+    print(recommendation)
     app.run(host='127.0.0.1', port=8080)
 
