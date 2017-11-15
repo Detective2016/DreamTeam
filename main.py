@@ -3,12 +3,29 @@ import rec_eng as re
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 
 # This defines a Flask application
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 # Magical annotations define URL routing via the Flask application
 @app.route('/')
 def root():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    print(path)
+    return send_from_directory('js', path)
+
+@app.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('css', path)
+
+@app.route('/images/<path:path>')
+def send_images(path):
+    return send_from_directory('images', path)
+
+@app.route('/us-map-1.0.1/<path:path>')
+def send_maps(path):
+    return send_from_directory('us-map-1.0.1', path)
 
 @app.route('/recommendation.html')
 def recommendation():
