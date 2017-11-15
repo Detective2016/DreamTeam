@@ -67,7 +67,7 @@ $(document).ready(function() {
             },
             data: data,
             success: function(response){
-                alert(response.age)
+                var age = response.age;
             }
         })
 	});
@@ -78,6 +78,7 @@ $(document).ready(function() {
 	$('#n-4').click(function(){
 		$('.sec-4').addClass('display-n');
 		$('.sec-5').removeClass('display-n');
+		location.href='recom.html';
 	});
 });
 window.onload = function() {

@@ -21,8 +21,12 @@ def translate_to_json():
     )
 
 @app.route('/')
-def root():
+def index():
     return render_template('index.html')
+
+@app.route('/recom.html')
+def recom():
+    return render_template('recom.html')
 
 @app.route('/js/<path:path>')
 def send_js(path):
