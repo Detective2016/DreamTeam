@@ -1,14 +1,14 @@
 import logging
 import rec_eng as re
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 
 # This defines a Flask application
 app = Flask(__name__)
 
 # Magical annotations define URL routing via the Flask application
 @app.route('/')
-def hello():
-    return render_template('index.html')
+def root():
+    return app.send_static_file('index.html')
 
 @app.route('/recommendation.html')
 def recommendation():

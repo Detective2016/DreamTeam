@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="686px" viewBox="0 0 1024 686" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>2@4x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="76" height="42" rx="4"></rect>
+        <filter x="-8.6%" y="-13.1%" width="117.1%" height="131.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.121376812 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect x="12" y="16" width="20" height="20" id="rect-3"></rect>
+        <circle id="path-4" cx="397.5" cy="396.5" r="15.5"></circle>
+        <filter x="-12.9%" y="-6.5%" width="125.8%" height="125.8%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.270125679 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2">
+            <rect id="Rectangle-8" fill="#FBFBFB" x="0" y="55" width="1024" height="631"></rect>
+            <text id="How-would-you-descri" font-family="OpenSans-Semibold, Open Sans" font-size="32" font-weight="500" line-spacing="52" letter-spacing="-0.941176474" fill="#4A4A4A">
+                <tspan x="275" y="198">How would you  </tspan>
+                <tspan x="275" y="250">describe your driving style?</tspan>
+                <tspan x="275" y="302"> </tspan>
+            </text>
+            <g id="Group-4" transform="translate(895.000000, 584.000000)">
+                <g id="156-Witch-Dance" transform="translate(38.000000, 21.000000) scale(-1, 1) translate(-38.000000, -21.000000) ">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <text id="Next" font-family="OpenSans-Semibold, Open Sans" font-size="14" font-weight="500" letter-spacing="-0.411764741" fill="#000000">
+                    <tspan x="22.8411076" y="26">Next</tspan>
+                </text>
+            </g>
+            <g id="Group-2">
+                <rect id="Rectangle-7" fill="#FFFFFF" x="0" y="0" width="1024" height="57"></rect>
+                <g id="1269045-200">
+                    <image x="12" y="16" width="20" height="20" xlink:href="data:image/png;base64,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"></image>
+                    <use fill="#000000" fill-rule="evenodd" xlink:href="#rect-3"></use>
+                </g>
+                <path d="M44,56.5 L44,0.5" id="Path-3" stroke="#EDEDEE" stroke-width="0.7"></path>
+                <polyline id="Path-5" stroke="#EDEDEE" stroke-width="0.7" points="163 0.28125 183 28.4684661 163 57.28125"></polyline>
+                <text id="740i-xDrive-Sedan" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#000000">
+                    <tspan x="62.0166016" y="30">740i xDrive Sedan</tspan>
+                    <tspan x="110.5" y="47"> </tspan>
+                </text>
+                <text id="Color" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#000000">
+                    <tspan x="214.489775" y="31">Color</tspan>
+                    <tspan x="229" y="48"> </tspan>
+                </text>
+                <text id="Wheels" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="311.21047" y="31">Wheels</tspan>
+                    <tspan x="331.142857" y="48"> </tspan>
+                </text>
+                <text id="Upholstery" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="403.172491" y="31">Upholstery</tspan>
+                    <tspan x="433.285714" y="48"> </tspan>
+                </text>
+                <text id="Trims" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="520.297253" y="31">Trims</tspan>
+                    <tspan x="535.428571" y="48"> </tspan>
+                </text>
+                <text id="Packages" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="612.214639" y="31">Packages</tspan>
+                    <tspan x="637.571429" y="48"> </tspan>
+                </text>
+                <text id="Options" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="718.062861" y="31">Options</tspan>
+                    <tspan x="739.714286" y="48"> </tspan>
+                </text>
+                <text id="BMW-Care" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="813.330431" y="31">BMW Care</tspan>
+                    <tspan x="841.857143" y="48"> </tspan>
+                </text>
+                <text id="Summary" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="917.371036" y="31">Summary</tspan>
+                    <tspan x="944" y="48"> </tspan>
+                </text>
+                <path d="M805,56 L874.425781,56" id="Path-9" stroke="#061C83" stroke-width="2"></path>
+            </g>
+            <g id="Oval-13">
+                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <circle stroke="#262628" stroke-width="2" cx="397.5" cy="396.5" r="14.5"></circle>
+            </g>
+            <rect id="Rectangle-2" fill="#DA142C" x="184" y="394" width="185" height="5"></rect>
+            <rect id="Rectangle-2-Copy" fill="#262628" opacity="0.100000001" x="429" y="394" width="411" height="5"></rect>
+            <text id="Conservative" font-family="OpenSans-Semibold, Open Sans" font-size="14" font-weight="500" fill="#000000">
+                <tspan x="140.596191" y="444">Conservative</tspan>
+            </text>
+            <text id="Aggressive" font-family="OpenSans-Semibold, Open Sans" font-size="14" font-weight="500" fill="#000000">
+                <tspan x="804.488281" y="444">Aggressive</tspan>
+            </text>
+            <text id="Spirited" font-family="OpenSans-Semibold, Open Sans" font-size="14" font-weight="500" fill="#000000">
+                <tspan x="486.222656" y="444">Spirited</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
