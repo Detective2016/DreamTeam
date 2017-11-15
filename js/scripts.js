@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 	$('#map').usmap({
 	    'stateStyles': {fill: '#f2f2f2', stroke: '#fff'},
 	    'stateHoverStyles': {fill: 'red'},
@@ -8,6 +9,42 @@ $(document).ready(function() {
 	      }
 	    }
 	});
+	$('.sec-5 input[value="1"]').click(function(){
+		$("#car-1").attr("src","images/traveling_over.png");
+		$("#car-2").attr("src","images/working.png");
+		$("#car-3").attr("src","images/commuting.png");
+		$("#car-4").attr("src","images/racing.png");
+		$("#car-5").attr("src","images/leisure.png");
+	});
+	$('.sec-5 input[value="2"]').click(function(){
+		$("#car-1").attr("src","images/traveling.png");
+		$("#car-2").attr("src","images/working_over.png");
+		$("#car-3").attr("src","images/commuting.png");
+		$("#car-4").attr("src","images/racing.png");
+		$("#car-5").attr("src","images/leisure.png");
+	});
+	$('.sec-5 input[value="3"]').click(function(){
+		$("#car-1").attr("src","images/traveling.png");
+		$("#car-2").attr("src","images/working.png");
+		$("#car-3").attr("src","images/commuting_over.png");
+		$("#car-4").attr("src","images/racing.png");
+		$("#car-5").attr("src","images/leisure.png");
+	});
+	$('.sec-5 input[value="4"]').click(function(){
+		$("#car-1").attr("src","images/traveling.png");
+		$("#car-2").attr("src","images/working.png");
+		$("#car-3").attr("src","images/commuting.png");
+		$("#car-4").attr("src","images/racing_over.png");
+		$("#car-5").attr("src","images/leisure.png");
+	});
+	$('.sec-5 input[value="5"]').click(function(){
+		$("#car-1").attr("src","images/traveling.png");
+		$("#car-2").attr("src","images/working.png");
+		$("#car-3").attr("src","images/commuting.png");
+		$("#car-4").attr("src","images/racing.png");
+		$("#car-5").attr("src","images/leisure_over.png");
+	});
+
 	$('#n-1').click(function(){
 		$('.sec-1').addClass('display-n');
 		$('.sec-2').removeClass('display-n');

@@ -193,3 +193,174 @@ input[type='range']::-webkit-slider-thumb {
 	margin-bottom: 20px;
 	max-width: 80px;
 }
+
+/*Styles Recom.html*/
+button:focus{
+	outline: 0;
+}
+.recom{
+	width: 100%;
+	min-height: 100vh;
+	background-color: #fbfbfb;
+}
+.re-1{
+	margin-top: 50px;
+	margin-bottom: 25px;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	-moz-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	background-color: white;
+	height: 55px;
+	overflow: hidden;
+	transition: all .3s;
+}
+#arrow-n{
+	display: none;
+	transition: all .3s;
+}
+#arrow-n:checked+.re-1{
+	height: auto;
+}
+.re-1 label{
+	background-color: transparent;
+	border: 0px;
+	cursor: pointer;
+	width: 55px;
+	margin-bottom: 0;
+	display: block;
+}
+.re-1 .align-items-center{
+	max-height: 55px;
+}
+.re-1 label:hover img{
+	-webkit-animation: button_arrow  1s infinite; /* Safari 4+ */
+  	-moz-animation: button_arrow  1s infinite; /* Fx 5+ */
+  	-o-animation: button_arrow 1s infinite; /* Opera 12+ */
+  	animation: button_arrow 1s infinite; /* IE 10+, Fx 29+ */
+}
+.re-1 .col-11 p{
+	margin-bottom: 0;
+	color: #000000;
+	font-weight: bold;
+}
+.re-1 p{
+	color: #4a4a4a;
+	font-weight: bold;
+}
+@-webkit-keyframes button_arrow {
+  0%   { transform: translate(0px,0px); }
+  50%  { transform: translate(0px,5px); }
+  100% { transform: translate(0px,0px); }
+}
+@-moz-keyframes button_arrow {
+  0%   { transform: translate(0px,0px); }
+  50%  { transform: translate(0px,5px); }
+  100% { transform: translate(0px,0px); }
+}
+@-o-keyframes button_arrow {
+  0%   { transform: translate(0px,0px); }
+  50%  { transform: translate(0px,5px); }
+  100% { transform: translate(0px,0px); }
+}
+@keyframes button_arrow {
+  0%   { transform: translate(0px,0px); }
+  50%  { transform: translate(0px,5px); }
+  100% { transform: translate(0px,0px); }
+}
+.re-2 .col-6 p{
+	color: #da142d;
+	text-transform: uppercase;
+	border-bottom: 1px solid #d4d4d4;
+	font-weight: bold;
+	padding: .7rem 0;
+}
+.re-2 .col-fa{
+	background-color: white;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	-moz-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+}
+.re-2 .col-6 .content{
+	background-position: center;
+	background-size: cover;
+}
+.re-2 .col-6 .content .img-cont{
+	background-color: rgba(0, 0, 0, 0.4);
+	top: 0;
+}
+.re-2 .col-6 .content .text-cont p{
+	color: white;
+	padding: 20px;
+	border-bottom: 0;
+}
+.re-2 .col-6 .content .text-cont{
+	width: 100%;
+	position: absolute;
+	position: relative;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	top: 0;
+}
+.re-2 .col-6 .col-5 .h-content{
+	background-color: white;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	-moz-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	margin-bottom: 1.5rem;
+}
+.re-2 .col-6 .fot-content{
+	min-height: 135px;
+}
+.re-2 .col-6 .fot-content p{
+	color: #000000;
+	font-weight: normal;
+	font-size: .8rem;
+	border-bottom: 0px;
+	padding: 10px;
+	text-transform: inherit;
+}
+.re-2 .col-10 p{
+	color: #000000;
+	border-bottom: 0;
+	text-transform: inherit;
+	font-weight: bold;
+	text-align: right;
+}
+.re-2 .col-ot p{
+	color: #000000;
+	text-transform: inherit;
+	font-size: .8rem;
+	padding: .8rem;
+}
+.re-2 .col-ot .col-6 .content-2{
+	background-color: white;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	-moz-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
+	margin-bottom: 1.5rem;
+	padding-bottom: 1rem;
+}
+.re-2 .col-ot .col-6 .content-2 .img-content-2{
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 1rem;
+	min-height: 135px;
+}
+.re-2 .col-ot .col-6 .content-2 .img-content-2 .text-content-2{
+	background-color: rgba(255, 255, 255, 0.75);
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+	top: 0;
+	position: absolute;
+}
+.re-2 .col-ot .col-6 .content-2 .img-content-2 .text-content-2 p{
+	padding-right: 50%;
+	color: #000000;
+	font-size: 1rem;
+	font-weight: bold;
+	border-bottom: 0;
+}
