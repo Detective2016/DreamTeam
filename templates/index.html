@@ -44,7 +44,7 @@
 			<div class="row justify-content-center">
 				<div class="col-6" id="alert">
 					<h1>Hello.</h1>
-  					<p>Is your current location <b></b></p>
+                    <p>Is your current location <b class="location"></b></p>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -92,10 +92,11 @@
 					<p>do you usually drive per week</p>
 				</div>
 			</div>
+
 			<div class="row justify-content-center">
 				<div class="col-6">
+                    <form id="FormHours">
 					<div class="row">
-                        <form id="myForm">
 						<div class="col-4">
 							<input type="radio" name="hours" value="1">
 							<p>>6<br>hours</p>
@@ -108,8 +109,8 @@
 							<input type="radio" name="hours" value="3">
 							<p>16+<br>hours</p>
 						</div>
-                        </form>
 					</div>
+                    </form>
 				</div>
 				<div class="col-8">
 					<button class="next" id="n-3">Next</button>
@@ -122,8 +123,10 @@
 					<p>What kind of parking do you use?</p>
 				</div>
 			</div>
+
 			<div class="row justify-content-center">
 				<div class="col-6">
+                    <form id="FormParking">
 					<div class="row align-items-end">
 						<div class="col-4">
 							<input type="radio" name="parking" value="1">
@@ -141,6 +144,7 @@
 							<p>Private Garage</p>
 						</div>
 					</div>
+                    </form>
 				</div>
 				<div class="col-8">
 					<button class="next" id="n-4">Next</button>
@@ -155,6 +159,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-8">
+                    <form id="FormUsage">
 					<div class="row justify-content-center align-items-end">
 						<div class="col-2">
 							<input type="radio" name="car" value="1">
@@ -182,9 +187,10 @@
 							<p>Leisure</p>
 						</div>
 					</div>
+                    </form>
 				</div>
 				<div class="col-8">
-					<button class="next" id="n-4">Next</button>
+					<button class="next" id="n-5">Next</button>
 				</div>
 			</div>
 		</div>

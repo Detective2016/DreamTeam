@@ -211,6 +211,28 @@ $(document).ready(function() {
 	$('#n-1').click(function(){
 		$('.sec-1').addClass('display-n');
 		$('.sec-2').removeClass('display-n');
+		$('span b').each(function() {
+          alert($(this).text());
+        });
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+        var location = $("b.location").text();
+        alert(location);
+        var data = JSON.stringify({
+            location: `${location}`
+        });
+        $.ajax({
+            url: '/location',
+            type: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: data,
+            success: function(response){
+                var age = response.age;
+            }
+        })
 	});
 	$('#n-2').click(function(){
 	    $('.sec-2').addClass('display-n');
@@ -237,12 +259,68 @@ $(document).ready(function() {
 	$('#n-3').click(function(){
 		$('.sec-3').addClass('display-n');
 		$('.sec-4').removeClass('display-n');
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+        var driving_hours = $('input[name=hours]:checked', '#FormHours').val();
+        var data = JSON.stringify({
+            driving_hours: `${driving_hours}`
+        });
+        $.ajax({
+            url: '/driving_hours',
+            type: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: data,
+            success: function(response){
+                var age = response.age;
+            }
+        })
 	});
 	$('#n-4').click(function(){
 		$('.sec-4').addClass('display-n');
 		$('.sec-5').removeClass('display-n');
-		location.href='recom.html';
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+        var parking_style = $('input[name=parking]:checked', '#FormParking').val();
+        var data = JSON.stringify({
+            parking_style: `${parking_style}`
+        });
+        $.ajax({
+            url: '/parking_style',
+            type: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: data,
+            success: function(response){
+                var age = response.age;
+            }
+        })
 	});
+	$('#n-5').click(function(){
+    	location.href='recom.html';
+        $.ajaxSetup({
+            contentType: "application/json; charset=utf-8"
+        });
+        var car_usage = $('input[name=car]:checked', '#FormUsage').val();
+        var data = JSON.stringify({
+            car_usage: `${car_usage}`
+        });
+        $.ajax({
+            url: '/car_usage',
+            type: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: data,
+            success: function(response){
+                var age = response.age;
+            }
+        })
+    });
 });
 window.onload = function() {
   var input = document.querySelector('input[type=range]'),
