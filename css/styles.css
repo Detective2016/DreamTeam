@@ -2,6 +2,30 @@
 body{
 	font-family: 'Open Sans', sans-serif;
 }
+.nav-justified{
+	background-color: #ffffff;
+}
+.nav-justified li:first-child{
+	border-right: 1px solid #fbfbfb;
+}
+.nav-justified li a img{
+	max-width: 15px;
+}
+.nav-justified li a{
+	font-size: .8rem;
+	color: #b9b9b9;
+	font-weight: bold;
+}
+.nav-justified .nav-item{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.nav-justified .active{
+	border-bottom: 2px solid #000;
+}
+.nav-justified .nav-item .bold{
+	color: #000;
+}
 #alert {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
@@ -135,9 +159,6 @@ input[type='range']::-webkit-slider-thumb {
 	font-size: 1rem;
 	color: #4a4a4a;
 	text-align: center;
-}
-.sec-4 .col-4:nth-child(2n) .svg{
-	margin-bottom: 0;
 }
 .sec-4 .col-4 input[type='radio']:checked+.svg path, 
 .sec-4 .col-4 input[type='radio']:checked+.svg polygon, 
@@ -356,6 +377,7 @@ button:focus{
 	cursor: pointer;
 	top: 0;
 	position: absolute;
+	transition: all .3s;
 }
 .re-2 .col-ot .col-6 .content-2 .img-content-2 .text-content-2 p{
 	padding-right: 50%;
@@ -364,3 +386,30 @@ button:focus{
 	font-weight: bold;
 	border-bottom: 0;
 }
+
+.re-2 .col-ot .col-6 .content-2 .img-content-2 .text-content-3{
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+	top: 0;
+	position: absolute;
+	opacity: 0;
+	transition: all .3s;
+	pointer-events: none;
+}
+.re-2 .col-ot .col-6 .content-2 .img-content-2:hover .text-content-2{
+	opacity: 0;
+	pointer-events: none;
+}
+.re-2 .col-ot .col-6 .content-2 .img-content-2:hover .text-content-3{
+	opacity: 1;
+	pointer-events: all;
+}
+.re-2 .col-ot .col-6 .content-2 .img-content-2 .text-content-3 p{
+	color: #ffffff;
+	font-size: .9rem;
+	font-weight: bold;
+	border-bottom: 0;
+}
+

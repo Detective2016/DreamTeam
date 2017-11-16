@@ -1,11 +1,158 @@
 $(document).ready(function() {
-	
+
 	$('#map').usmap({
 	    'stateStyles': {fill: '#f2f2f2', stroke: '#fff'},
 	    'stateHoverStyles': {fill: 'red'},
 	    'clickState': {
 	      'NY' : function(event, data) {
 	        $('#alert p b').text('New York');
+	      },
+	      'AK' : function(event, data) {
+	        $('#alert p b').text('Alaska');
+	      },
+	      'AL' : function(event, data) {
+	        $('#alert p b').text('Alabama');
+	      },
+	      'AZ' : function(event, data) {
+	        $('#alert p b').text('Arizona');
+	      },
+	      'AR' : function(event, data) {
+	        $('#alert p b').text('Arkansas');
+	      },
+	      'CA' : function(event, data) {
+	        $('#alert p b').text('California');
+	      },
+	      'CO' : function(event, data) {
+	        $('#alert p b').text('Colorado');
+	      },
+	      'CT' : function(event, data) {
+	        $('#alert p b').text('Connecticut');
+	      },
+	      'DE' : function(event, data) {
+	        $('#alert p b').text('Delaware');
+	      },
+	      'FL' : function(event, data) {
+	        $('#alert p b').text('Florida');
+	      },
+	      'GA' : function(event, data) {
+	        $('#alert p b').text('Georgia');
+	      },
+	      'HI' : function(event, data) {
+	        $('#alert p b').text('Hawaii');
+	      },
+	      'ID' : function(event, data) {
+	        $('#alert p b').text('Idaho');
+	      },
+	      'IL' : function(event, data) {
+	        $('#alert p b').text('Illinois');
+	      },
+	      'IN' : function(event, data) {
+	        $('#alert p b').text('Indiana');
+	      },
+	      'IA' : function(event, data) {
+	        $('#alert p b').text('Iowa');
+	      },
+	      'KS' : function(event, data) {
+	        $('#alert p b').text('Kansas');
+	      },
+	      'KY' : function(event, data) {
+	        $('#alert p b').text('Kentucky');
+	      },
+	      'LA' : function(event, data) {
+	        $('#alert p b').text('Louisiana');
+	      },
+	      'ME' : function(event, data) {
+	        $('#alert p b').text('Maine');
+	      },
+	      'MD' : function(event, data) {
+	        $('#alert p b').text('Maryland');
+	      },
+	      'MA' : function(event, data) {
+	        $('#alert p b').text('Massachusetts');
+	      },
+	      'MI' : function(event, data) {
+	        $('#alert p b').text('Michigan');
+	      },
+	      'MN' : function(event, data) {
+	        $('#alert p b').text('Minnesota');
+	      },
+	      'MS' : function(event, data) {
+	        $('#alert p b').text('Mississippi');
+	      },
+	      'MO' : function(event, data) {
+	        $('#alert p b').text('Missouri');
+	      },
+	      'MT' : function(event, data) {
+	        $('#alert p b').text('Montana');
+	      },
+	      'NE' : function(event, data) {
+	        $('#alert p b').text('Nebraska');
+	      },
+	      'NV' : function(event, data) {
+	        $('#alert p b').text('Nevada');
+	      },
+	      'NH' : function(event, data) {
+	        $('#alert p b').text('New Hampshire');
+	      },
+	      'NJ' : function(event, data) {
+	        $('#alert p b').text('New Jersey');
+	      },
+	      'NM' : function(event, data) {
+	        $('#alert p b').text('New Mexico');
+	      },
+	      'NC' : function(event, data) {
+	        $('#alert p b').text('North Carolina');
+	      },
+	      'ND' : function(event, data) {
+	        $('#alert p b').text('North Dakota');
+	      },
+	      'OH' : function(event, data) {
+	        $('#alert p b').text('Ohio');
+	      },
+	      'OK' : function(event, data) {
+	        $('#alert p b').text('Oklahoma');
+	      },
+	      'OR' : function(event, data) {
+	        $('#alert p b').text('Oregon');
+	      },
+	      'PA' : function(event, data) {
+	        $('#alert p b').text('Pennsylvania');
+	      },
+	      'RI' : function(event, data) {
+	        $('#alert p b').text('Rhode Island');
+	      },
+	      'SC' : function(event, data) {
+	        $('#alert p b').text('South Carolina');
+	      },
+	      'SD' : function(event, data) {
+	        $('#alert p b').text('South Dakota');
+	      },
+	      'TN' : function(event, data) {
+	        $('#alert p b').text('Tennessee');
+	      },
+	      'TX' : function(event, data) {
+	        $('#alert p b').text('Texas');
+	      },
+	      'UT' : function(event, data) {
+	        $('#alert p b').text('Utah');
+	      },
+	      'VT' : function(event, data) {
+	        $('#alert p b').text('Vermont');
+	      },
+	      'VA' : function(event, data) {
+	        $('#alert p b').text('Virginia');
+	      },
+	      'WA' : function(event, data) {
+	        $('#alert p b').text('Washington');
+	      },
+	      'WV' : function(event, data) {
+	        $('#alert p b').text('West Virginia');
+	      },
+	      'WI' : function(event, data) {
+	        $('#alert p b').text('Wisconsin');
+	      },
+	      'WY' : function(event, data) {
+	        $('#alert p b').text('Wyoming');
 	      }
 	    }
 	});
@@ -43,6 +190,22 @@ $(document).ready(function() {
 		$("#car-3").attr("src","images/commuting.png");
 		$("#car-4").attr("src","images/racing.png");
 		$("#car-5").attr("src","images/leisure_over.png");
+	});
+
+	$('.sec-4 input[value="1"]').click(function(){
+		$("#park_1").attr("src","images/public_parking_lot_over.png");
+		$("#park_2").attr("src","images/Parkin_building.png");
+		$("#park_3").attr("src","images/Private_parking.png");
+	});
+	$('.sec-4 input[value="2"]').click(function(){
+		$("#park_1").attr("src","images/public_parking_lot.png");
+		$("#park_2").attr("src","images/Parkin_building_over.png");
+		$("#park_3").attr("src","images/Private_parking.png");
+	});
+	$('.sec-4 input[value="3"]').click(function(){
+		$("#park_1").attr("src","images/public_parking_lot.png");
+		$("#park_2").attr("src","images/Parkin_building.png");
+		$("#park_3").attr("src","images/Private_parking_over.png");
 	});
 
 	$('#n-1').click(function(){
@@ -104,35 +267,3 @@ window.onload = function() {
     style_el.textContent = styles.join('');
   }, false);
 }
-
- /*
-     * Replace all SVG images with inline SVG
-     */
-        jQuery('img.svg').each(function(){
-            var $img = jQuery(this);
-            var imgID = $img.attr('id');
-            var imgClass = $img.attr('class');
-            var imgURL = $img.attr('src');
-
-            jQuery.get(imgURL, function(data) {
-                // Get the SVG tag, ignore the rest
-                var $svg = jQuery(data).find('svg');
-
-                // Add replaced image's ID to the new SVG
-                if(typeof imgID !== 'undefined') {
-                    $svg = $svg.attr('id', imgID);
-                }
-                // Add replaced image's classes to the new SVG
-                if(typeof imgClass !== 'undefined') {
-                    $svg = $svg.attr('class', imgClass+' replaced-svg');
-                }
-
-                // Remove any invalid XML tags as per http://validator.w3.org
-                $svg = $svg.removeAttr('xmlns:a');
-
-                // Replace image with new SVG
-                $img.replaceWith($svg);
-
-            }, 'xml');
-
-        });
