@@ -60,8 +60,43 @@ def input_driving_style():
     body = request.get_json()
     if body.get('driving_style') is None:
         raise BadRequest('missing driving_style')
+    print("driving style: " + body.get('driving_style'))
 
-    print(body.get('driving_style'))
+    return translate_to_json()
+
+@app.route("/driving_hours", methods=['POST'])
+def input_driving_hours():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    if body.get('driving_hours') is None:
+        raise BadRequest('missing driving_hours')
+    print("driving hours: " + body.get('driving_hours'))
+
+    return translate_to_json()
+
+@app.route("/parking_style", methods=['POST'])
+def input_parking_style():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    if body.get('parking_style') is None:
+        raise BadRequest('missing parking_style')
+    print("parking style: " + body.get('parking_style'))
+
+    return translate_to_json()
+
+@app.route("/car_usage", methods=['POST'])
+def input_car_usage():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    if body.get('car_usage') is None:
+        raise BadRequest('missing car_usage')
+    print("car usage: " + body.get('car_usage'))
 
     return translate_to_json()
 
