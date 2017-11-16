@@ -412,4 +412,25 @@ button:focus{
 	font-weight: bold;
 	border-bottom: 0;
 }
-
+footer{
+	background-color: #211f20;
+	margin-top: 3rem;
+}
+footer .col-2{
+	border-right: 2px solid #3f3d3e;
+}
+footer .col-2 img{
+	width: 30px;
+	margin-right: .5rem;
+}
+footer .col-2 p{
+	color: #ffffff;
+	margin-top: 1rem;
+}
+footer .col-10 p{
+	color: #ffffff;
+	margin-top: 1rem;
+}
+footer .col-10 p span{
+	color: #b8b6b9;
+}
