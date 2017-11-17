@@ -7,7 +7,7 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="recom">
 	<header>
 		<ul class="nav nav-pills nav-justified">
 			<li class="nav-item">
@@ -43,8 +43,8 @@
 		<div class="container-fluid sec-1">
 			<div class="row justify-content-center">
 				<div class="col-6" id="alert">
-					<h1>Hello.</h1>
-                    <p>Is your current location <b class="location"></b></p>
+					<h1>Welcome to BMW Care.</h1>
+                    <p>Select your state below: <b class="location"></b></p>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -92,7 +92,6 @@
 					<p>do you usually drive per week</p>
 				</div>
 			</div>
-
 			<div class="row justify-content-center">
 				<div class="col-6">
                     <form id="FormHours">
@@ -123,24 +122,23 @@
 					<p>What kind of parking do you use?</p>
 				</div>
 			</div>
-
 			<div class="row justify-content-center">
 				<div class="col-6">
                     <form id="FormParking">
 					<div class="row align-items-end">
 						<div class="col-4">
 							<input type="radio" name="parking" value="1">
-							<img class="svg" src="images/parking-icon.svg" alt="">
+							<img class="svg" id="park_1" src="images/public_parking_lot.png" alt="">
 							<p>Public Parking Lot</p>
-						</div>
+					</div>
 						<div class="col-4">
 							<input type="radio" name="parking" value="2">
-							<img class="svg" src="images/noun_21392_cc.svg" style="margin-bottom: 0;" alt="">
+							<img class="svg" id="park_2" src="images/Parkin_building.png" alt="">
 							<p>Parking Building</p>
 						</div>
 						<div class="col-4">
 							<input type="radio" name="parking" value="3">
-							<img class="svg" src="images/private-garage.svg" alt="">
+							<img class="svg" id="park_3" src="images/Private_parking.png" alt="">
 							<p>Private Garage</p>
 						</div>
 					</div>
