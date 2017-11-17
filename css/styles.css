@@ -446,6 +446,7 @@ footer{
 }
 footer .col-2{
 	border-right: 2px solid #3f3d3e;
+	cursor: pointer;
 }
 footer .col-2 img{
 	width: 30px;
