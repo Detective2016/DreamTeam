@@ -156,35 +156,35 @@ $(document).ready(function() {
 	      }
 	    }
 	});
-	$('.sec-5 input[value="1"]').click(function(){
+	$('.sec-6 input[value="1"]').click(function(){
 		$("#car-1").attr("src","images/traveling_over.png");
 		$("#car-2").attr("src","images/working.png");
 		$("#car-3").attr("src","images/commuting.png");
 		$("#car-4").attr("src","images/racing.png");
 		$("#car-5").attr("src","images/leisure.png");
 	});
-	$('.sec-5 input[value="2"]').click(function(){
+	$('.sec-6 input[value="2"]').click(function(){
 		$("#car-1").attr("src","images/traveling.png");
 		$("#car-2").attr("src","images/working_over.png");
 		$("#car-3").attr("src","images/commuting.png");
 		$("#car-4").attr("src","images/racing.png");
 		$("#car-5").attr("src","images/leisure.png");
 	});
-	$('.sec-5 input[value="3"]').click(function(){
+	$('.sec-6 input[value="3"]').click(function(){
 		$("#car-1").attr("src","images/traveling.png");
 		$("#car-2").attr("src","images/working.png");
 		$("#car-3").attr("src","images/commuting_over.png");
 		$("#car-4").attr("src","images/racing.png");
 		$("#car-5").attr("src","images/leisure.png");
 	});
-	$('.sec-5 input[value="4"]').click(function(){
+	$('.sec-6 input[value="4"]').click(function(){
 		$("#car-1").attr("src","images/traveling.png");
 		$("#car-2").attr("src","images/working.png");
 		$("#car-3").attr("src","images/commuting.png");
 		$("#car-4").attr("src","images/racing_over.png");
 		$("#car-5").attr("src","images/leisure.png");
 	});
-	$('.sec-5 input[value="5"]').click(function(){
+	$('.sec-6 input[value="5"]').click(function(){
 		$("#car-1").attr("src","images/traveling.png");
 		$("#car-2").attr("src","images/working.png");
 		$("#car-3").attr("src","images/commuting.png");
@@ -297,8 +297,30 @@ $(document).ready(function() {
         })
 	});
 	$('#n-5').click(function(){
-	    $('.sec-5').addClass('display-n');
-    	$('.sec-6').removeClass('display-n');
+    		$('.sec-5').addClass('display-n');
+    		$('.sec-6').removeClass('display-n');
+            $.ajaxSetup({
+                contentType: "application/json; charset=utf-8"
+            });
+            var driving_hours = $('input[name=age]:checked', '#FormAge').val();
+            var data = JSON.stringify({
+                driving_hours: `${driving_hours}`
+            });
+            $.ajax({
+                url: '/driving_hours',
+                type: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: data,
+                success: function(response){
+                    var age = response.windshield;
+                }
+            })
+    	});
+	$('#n-6').click(function(){
+	    $('.sec-6').addClass('display-n');
+    	$('.sec-7').removeClass('display-n');
         $.ajaxSetup({
             contentType: "application/json; charset=utf-8"
         });
