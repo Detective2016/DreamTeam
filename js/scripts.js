@@ -211,14 +211,10 @@ $(document).ready(function() {
 	$('#n-1').click(function(){
 		$('.sec-1').addClass('display-n');
 		$('.sec-2').removeClass('display-n');
-		$('span b').each(function() {
-          alert($(this).text());
-        });
         $.ajaxSetup({
             contentType: "application/json; charset=utf-8"
         });
         var location = $("b.location").text();
-        alert(location);
         var data = JSON.stringify({
             location: `${location}`
         });
@@ -252,7 +248,7 @@ $(document).ready(function() {
             },
             data: data,
             success: function(response){
-                var age = response.age;
+                var age = response.windshield;
             }
         })
 	});
@@ -274,7 +270,7 @@ $(document).ready(function() {
             },
             data: data,
             success: function(response){
-                var age = response.age;
+                var age = response.windshield;
             }
         })
 	});
@@ -296,12 +292,13 @@ $(document).ready(function() {
             },
             data: data,
             success: function(response){
-                var age = response.age;
+                var age = response.windshield;
             }
         })
 	});
 	$('#n-5').click(function(){
-    	location.href='recom.html';
+	    $('.sec-5').addClass('display-n');
+    	$('.sec-6').removeClass('display-n');
         $.ajaxSetup({
             contentType: "application/json; charset=utf-8"
         });
@@ -309,6 +306,7 @@ $(document).ready(function() {
         var data = JSON.stringify({
             car_usage: `${car_usage}`
         });
+
         $.ajax({
             url: '/car_usage',
             type: 'POST',
@@ -317,10 +315,30 @@ $(document).ready(function() {
             },
             data: data,
             success: function(response){
-                var age = response.age;
+                var details = response.details;
+                $('#details').html(details);
+                var op1 = response.keyloss;
+                var op2 = response.paint;
+                var op3 = response.tires;
+                var op4 = response.windshield;
+                if (op1 != 1) {
+                    $("div#option1").hide();
+                }
+                if (op2 != 1) {
+                    $("div#option2").hide();
+                }
+                if (op3 != 1)
+                    $("div#option3").hide();
+                }
+                if (op4 != 1) {
+                    $("div#option4").hide();
+                }
+
+
             }
         })
     });
+
 });
 window.onload = function() {
   var input = document.querySelector('input[type=range]'),
@@ -331,7 +349,7 @@ window.onload = function() {
 
   styles.push('');
 
-  input.addEventListener('input', function() {
+  /*input.addEventListener('input', function() {
     var min = this.min || 0,
       max = this.max || 100,
       c_style, u, edge_w, val, str = '';
@@ -343,5 +361,5 @@ window.onload = function() {
 
     styles[0] = str;
     style_el.textContent = styles.join('');
-  }, false);
+  }, false);*/
 }
