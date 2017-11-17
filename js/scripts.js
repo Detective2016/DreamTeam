@@ -338,24 +338,28 @@ $(document).ready(function() {
             data: data,
             success: function(response){
                 var details = response.details;
-                $('#details').html(details);
-                var op1 = response.keyloss;
-                var op2 = response.paint;
-                var op3 = response.tires;
-                var op4 = response.windshield;
+                var opKey = response.keyloss;
+                var opPaint = response.paint;
+                var opTires = response.tires;
+                var opWind = response.windshield;
                 var users = response.users;
                 var enable = 1;
-                if (op1 != enable) {
-                    $("div#option1").hide();
+                /*alert(opKey)
+                alert(opPaint)
+                alert(opWind)
+                alert(opTires)*/
+                $('#details').html(details[0]);
+                if (opKey != enable) {
+                    $("div#optionKeyloss").hide();
                 }
-                if (op2 != enable) {
-                    $("div#option2").hide();
+                if (opPaint != enable) {
+                    $("div#optionPaint").hide();
                 }
-                if (op3 != enable) {
-                    $("div#option3").hide();
+                if (opTires != enable) {
+                    $("div#optionTires").hide();
                 }
-                if (op4 != enable) {
-                    $("div#option4").hide();
+                if (opWind != enable) {
+                    $("div#optionWindshield").hide();
                 }
                 $("div#ad_key").hide();
                 $("div#ad_windshield").hide();

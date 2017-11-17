@@ -14,12 +14,6 @@ criterias = {"Age": 25,  # (16 - 99)
              "Parking Space": 3,  # (0 - 14)
              "Purpose": "Traveling",  # (0 - 62)
              "Usage": 25}  # (1 - 30)
-recommendation = {"Keyloss": 0,
-                  "Paint": 0,
-                  "Tires": 1,
-                  "Windshield":0,
-                  "User":["Windshield"]}
-recommendation_details = "97% people like you bought this package"
 
 def get_json_criteria():
     return jsonify(
@@ -29,16 +23,21 @@ def get_json_criteria():
         windshield=recommendation["Windshield"]
     )
 
-def get_final_criteria():
-    recommendation['details'] = "people like this"
-    print(recommendation['details'])
+def get_final_criteria(recom, recom_details):
+    recom['details'] = recom_details
+    print(recom['details'])
+    print(recom['Keyloss'])
+    print(recom['Tires'])
+    print(recom['Windshield'])
+    print(recom['Paint'])
+    print(recom['User'])
     return jsonify(
-        keyloss=recommendation["Keyloss"],
-        paint=recommendation["Paint"],
-        tires=recommendation["Tires"],
-        details=recommendation["details"],
-        windshield=recommendation["Windshield"],
-        users=recommendation["User"]
+        keyloss=recom["Keyloss"],
+        paint=recom["Paint"],
+        tires=recom["Tires"],
+        details=recom["details"],
+        windshield=recom["Windshield"],
+        users=recom["User"]
     )
 
 @app.route('/')
@@ -121,15 +120,11 @@ def input_driving_hours():
     criterias['Usage'] = usage
 
     if (int(usage) == 1):
-        criterias['Usage'] = 20
+        criterias['Usage'] = 5
     elif (int(usage) == 2):
-        criterias['Usage'] = 31
-    elif (int(usage) == 3):
-        criterias['Usage'] = 42
-    elif (int(usage) == 4):
-        criterias['Usage'] = 54
+        criterias['Usage'] = 15
     else:
-        criterias['Usage'] = 75
+        criterias['Usage'] = 25
 
     return get_json_criteria()
 
@@ -146,9 +141,13 @@ def input_age():
     if (int(age) == 1):
         criterias['Age'] = 20
     elif (int(age) == 2):
-        criterias['Age'] = 30
+        criterias['Age'] = 31
+    elif (int(age) == 3):
+        criterias['Age'] = 42
+    elif (int(age) == 4):
+        criterias['Age'] = 54
     else:
-        criterias['Age'] = 60
+        criterias['Age'] = 75
 
     print("age: " + age)
 
@@ -179,18 +178,22 @@ def input_car_usage():
         raise BadRequest('missing car_usage')
     print("car usage purpose: " + purpose)
 
-    if (int(purpose) == 1):
+    if int(purpose) == 1:
         criterias['Purpose'] = 'Traveling'
-    elif (int(purpose) == 2):
+    elif int(purpose) == 2:
         criterias['Purpose'] = 'Working'
-    elif (int(purpose) == 3):
+    elif int(purpose) == 3:
         criterias['Purpose'] = 'Commuting'
-    elif (int(purpose) == 4):
+    elif int(purpose) == 4:
         criterias['Purpose'] = 'Racing'
     else:
         criterias['Purpose'] = 'Leisure'
     print(criterias)
-    return get_final_criteria()
+    recom = re.get_rec(criterias)
+    print(recom)
+    recom_details = di.diagnosis(criterias['Age'],criterias['Behavior'],criterias['Location'],criterias['Purpose'],criterias['Parking Space'],criterias['Usage'],recom['Tires'],recom['Windshield'],recom['Paint'],recom['Keyloss'])
+    print(recom_details)
+    return get_final_criteria(recom, recom_details)
 
 @app.errorhandler(500)
 def server_error(e):
@@ -201,13 +204,13 @@ def server_error(e):
     """.format(e), 500
 
 
-def process_input(test):
-    return re.get_rec(test)
+def process_input(criterias):
+    return re.get_rec(criterias)
 
 if __name__ == '__main__':
     recommendation = process_input(criterias)
-    print(recommendation)
-    print(di.diagnosis(78,0,1,1,16,10,1,0,1,0))
+    #print(recommendation)
+    #print(di.diagnosis(78,0,1,1,16,10,1,0,1,0))
     # ages,behavior,location,purpose,parking,usage,tire,windshield,painting,keyloss
     app.run(host='127.0.0.1', port=8080)
 
