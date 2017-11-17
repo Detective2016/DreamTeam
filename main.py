@@ -9,8 +9,8 @@ app = Flask(__name__, static_url_path='')
 # variables to adjust
 criterias = {"Age": 25,  # (16 - 99)
              "Behavior": "Neutral",  # (0 - 3)
-             "Location": "S",  # (0 - 3)
-             "Parking Space": "Parkinglot/R|Parkinglot",  # (0 - 14)
+             "Location": "TX",  # (0 - 3)
+             "Parking Space": "Parkinglot_r|Parkinglot",  # (0 - 14)
              "Purpose": "Working|Commuting|Racing",  # (0 - 62)
              "Usage": 10}  # (1 - 30)
 recommendation = {}
