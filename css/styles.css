@@ -215,7 +215,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 .sec-5 .col-2 p{
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 	text-align: center;
 }
 .sec-5 .col-2 input[type='radio']:checked+p{
