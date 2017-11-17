@@ -302,12 +302,12 @@ $(document).ready(function() {
             $.ajaxSetup({
                 contentType: "application/json; charset=utf-8"
             });
-            var driving_hours = $('input[name=age]:checked', '#FormAge').val();
+            var age = $('input[name=age]:checked', '#FormAge').val();
             var data = JSON.stringify({
-                driving_hours: `${driving_hours}`
+                age: `${age}`
             });
             $.ajax({
-                url: '/driving_hours',
+                url: '/age',
                 type: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -343,20 +343,40 @@ $(document).ready(function() {
                 var op2 = response.paint;
                 var op3 = response.tires;
                 var op4 = response.windshield;
-                if (op1 != 1) {
+                var users = response.users;
+                var enable = 1;
+                if (op1 != enable) {
                     $("div#option1").hide();
                 }
-                if (op2 != 1) {
+                if (op2 != enable) {
                     $("div#option2").hide();
                 }
-                if (op3 != 1) {
+                if (op3 != enable) {
                     $("div#option3").hide();
                 }
-                if (op4 != 1) {
+                if (op4 != enable) {
                     $("div#option4").hide();
                 }
-
-
+                $("div#ad_key").hide();
+                $("div#ad_windshield").hide();
+                $("div#ad_tires").hide();
+                $("div#ad_paint").hide();
+                for (i = 0; i < users.length; i++) {
+                    switch(users[i]) {
+                        case 'Paint':
+                            $("div#ad_paint").show();
+                            break;
+                        case 'Tires':
+                            $("div#ad_tires").show();
+                            break;
+                        case 'Windshield':
+                            $("div#ad_windshield").show();
+                            break;
+                        default:
+                            //keyloss
+                            $("div#ad_key").show();
+                    }
+                }
             }
         })
     });
@@ -371,7 +391,7 @@ window.onload = function() {
 
   styles.push('');
 
-  /*input.addEventListener('input', function() {
+  input.addEventListener('input', function() {
     var min = this.min || 0,
       max = this.max || 100,
       c_style, u, edge_w, val, str = '';
@@ -383,5 +403,5 @@ window.onload = function() {
 
     styles[0] = str;
     style_el.textContent = styles.join('');
-  }, false);*/
+  }, false);
 }

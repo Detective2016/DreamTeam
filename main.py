@@ -8,11 +8,11 @@ app = Flask(__name__, static_url_path='')
 
 # variables to adjust, setting to default initially and change based on request
 criterias = {"Age": 25,  # (16 - 99)
-             "Behavior": "Neutral",  # (0 - 3)
-             "Location": "TX",  # (0 - 3)
-             "Parking Space": "Parkinglot_r|Parkinglot",  # (0 - 14)
-             "Purpose": "Working|Commuting|Racing",  # (0 - 62)
-             "Usage": 10}  # (1 - 30)
+             "Behavior": 3,  # (0 - 3)
+             "Location": "New York",  # (0 - 3)
+             "Parking Space": 3,  # (0 - 14)
+             "Purpose": "Traveling",  # (0 - 62)
+             "Usage": 25}  # (1 - 30)
 recommendation = {"Keyloss": 0,
                   "Paint": 0,
                   "Tires": 1,
@@ -36,7 +36,8 @@ def get_final_criteria():
         paint=recommendation["Paint"],
         tires=recommendation["Tires"],
         details=recommendation["details"],
-        windshield=recommendation["Windshield"]
+        windshield=recommendation["Windshield"],
+        users=recommendation["User"]
     )
 
 @app.route('/')
@@ -77,9 +78,12 @@ def input_location():
         raise UnsupportedMediaType()
 
     body = request.get_json()
-    if body.get('location') is None:
+    location = body.get('location')
+    if location is None:
         raise BadRequest('missing location')
-    print("location: " + body.get('location'))
+
+    print("location: " + location)
+    criterias['Location'] = location
 
     return get_json_criteria()
 
@@ -89,9 +93,17 @@ def input_driving_style():
         raise UnsupportedMediaType()
 
     body = request.get_json()
-    if body.get('driving_style') is None:
+    behavior = body.get('driving_style')
+    if behavior is None:
         raise BadRequest('missing driving_style')
-    print("driving style: " + body.get('driving_style'))
+    print("driving style: " + behavior)
+
+    if (int(behavior) <= 33):
+        criterias['Behavior'] = 1
+    elif (int(behavior) <= 66):
+        criterias['Behavior'] = 2
+    else:
+        criterias['Behavior'] = 3
 
     return get_json_criteria()
 
@@ -101,9 +113,39 @@ def input_driving_hours():
         raise UnsupportedMediaType()
 
     body = request.get_json()
-    if body.get('driving_hours') is None:
+    usage = body.get('driving_hours')
+    if usage is None:
         raise BadRequest('missing driving_hours')
-    print("driving hours: " + body.get('driving_hours'))
+    print("driving hours: " + usage)
+    criterias['Usage'] = usage
+
+    if (int(usage) == 1):
+        criterias['Usage'] = 5
+    elif (int(usage) == 2):
+        criterias['Usage'] = 15
+    else:
+        criterias['Usage'] = 25
+
+    return get_json_criteria()
+
+@app.route("/age", methods=['POST'])
+def input_age():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    age = body.get('age')
+    if age is None:
+        raise BadRequest('missing age')
+
+    if (int(age) == 1):
+        criterias['Age'] = 20
+    elif (int(age) == 2):
+        criterias['Age'] = 30
+    else:
+        criterias['Age'] = 60
+
+    print("age: " + age)
 
     return get_json_criteria()
 
@@ -113,9 +155,11 @@ def input_parking_style():
         raise UnsupportedMediaType()
 
     body = request.get_json()
+    parking = body.get('parking_style')
     if body.get('parking_style') is None:
         raise BadRequest('missing parking_style')
-    print("parking style: " + body.get('parking_style'))
+    print("parking style: " + parking)
+    criterias['Parking Space'] = int(parking)
 
     return get_json_criteria()
 
@@ -125,10 +169,22 @@ def input_car_usage():
         raise UnsupportedMediaType()
 
     body = request.get_json()
-    if body.get('car_usage') is None:
+    purpose = body.get('car_usage')
+    if purpose is None:
         raise BadRequest('missing car_usage')
-    print("car usage: " + body.get('car_usage'))
+    print("car usage purpose: " + purpose)
 
+    if (int(purpose) == 1):
+        criterias['Purpose'] = 'Traveling'
+    elif (int(purpose) == 2):
+        criterias['Purpose'] = 'Working'
+    elif (int(purpose) == 3):
+        criterias['Purpose'] = 'Commuting'
+    elif (int(purpose) == 4):
+        criterias['Purpose'] = 'Racing'
+    else:
+        criterias['Purpose'] = 'Leisure'
+    print(criterias)
     return get_final_criteria()
 
 @app.errorhandler(500)
