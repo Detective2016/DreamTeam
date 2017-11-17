@@ -6,18 +6,37 @@ from werkzeug.exceptions import BadRequest, NotFound, UnsupportedMediaType, Unau
 # This defines a Flask application
 app = Flask(__name__, static_url_path='')
 
-# variables to adjust
+# variables to adjust, setting to default initially and change based on request
 criterias = {"Age": 25,  # (16 - 99)
              "Behavior": "Neutral",  # (0 - 3)
              "Location": "S",  # (0 - 3)
              "Parking Space": "Parkinglot/R|Parkinglot",  # (0 - 14)
              "Purpose": "Working|Commuting|Racing",  # (0 - 62)
              "Usage": 10}  # (1 - 30)
-recommendation = {}
+recommendation = {"Keyloss": 0,
+                  "Paint": 0,
+                  "Tires": 1,
+                  "Windshield":0,
+                  "User":["Windshield"]}
+recommendation_details = "97% people like you bought this package"
 
-def translate_to_json():
+def get_json_criteria():
     return jsonify(
-        age=criterias["Age"]
+        keyloss=recommendation["Keyloss"],
+        paint=recommendation["Paint"],
+        tires=recommendation["Tires"],
+        windshield=recommendation["Windshield"]
+    )
+
+def get_final_criteria():
+    recommendation['details'] = "people like this"
+    print(recommendation['details'])
+    return jsonify(
+        keyloss=recommendation["Keyloss"],
+        paint=recommendation["Paint"],
+        tires=recommendation["Tires"],
+        details=recommendation["details"],
+        windshield=recommendation["Windshield"]
     )
 
 @app.route('/')
@@ -52,6 +71,18 @@ def recommendation():
 def population():
     return render_template('population.csv')
 
+@app.route("/location", methods=['POST'])
+def input_location():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    if body.get('location') is None:
+        raise BadRequest('missing location')
+    print("location: " + body.get('location'))
+
+    return get_json_criteria()
+
 @app.route("/driving_style", methods=['POST'])
 def input_driving_style():
     if not request.is_json:
@@ -62,7 +93,7 @@ def input_driving_style():
         raise BadRequest('missing driving_style')
     print("driving style: " + body.get('driving_style'))
 
-    return translate_to_json()
+    return get_json_criteria()
 
 @app.route("/driving_hours", methods=['POST'])
 def input_driving_hours():
@@ -74,7 +105,7 @@ def input_driving_hours():
         raise BadRequest('missing driving_hours')
     print("driving hours: " + body.get('driving_hours'))
 
-    return translate_to_json()
+    return get_json_criteria()
 
 @app.route("/parking_style", methods=['POST'])
 def input_parking_style():
@@ -86,7 +117,7 @@ def input_parking_style():
         raise BadRequest('missing parking_style')
     print("parking style: " + body.get('parking_style'))
 
-    return translate_to_json()
+    return get_json_criteria()
 
 @app.route("/car_usage", methods=['POST'])
 def input_car_usage():
@@ -98,7 +129,7 @@ def input_car_usage():
         raise BadRequest('missing car_usage')
     print("car usage: " + body.get('car_usage'))
 
-    return translate_to_json()
+    return get_final_criteria()
 
 @app.errorhandler(500)
 def server_error(e):
