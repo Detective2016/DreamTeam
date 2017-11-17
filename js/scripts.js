@@ -327,7 +327,7 @@ $(document).ready(function() {
                 if (op2 != 1) {
                     $("div#option2").hide();
                 }
-                if (op3 != 1)
+                if (op3 != 1) {
                     $("div#option3").hide();
                 }
                 if (op4 != 1) {
