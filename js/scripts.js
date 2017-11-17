@@ -380,6 +380,9 @@ $(document).ready(function() {
             }
         })
     });
+    $('#save').click(function(){
+        window.location.href = "final-page.html";
+    })
 
 });
 window.onload = function() {

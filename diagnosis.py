@@ -178,7 +178,7 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
     if pain == 1:
         result.append("BMW Paintless Dent Repair Services would save you about $500 per year.")
     return result
-diagnosis(78,0,1,1,16,10,1,0,1,0)
+#diagnosis(78,0,1,1,16,10,1,0,1,0)
 # ages,behavior,location,purpose,parking,usage,tire,windshield,painting,keyloss
 
 

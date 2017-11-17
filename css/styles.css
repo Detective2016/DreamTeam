@@ -205,7 +205,7 @@ input[type='range']::-webkit-slider-thumb {
 	max-width: 100px;
 }
 
-.sec-5 .col-4 input[type='radio']{
+.sec-5 .col-2 input[type='radio']{
 	width: 70px;
     height: 70px;
     left: calc(50% - 35px);
@@ -213,12 +213,12 @@ input[type='range']::-webkit-slider-thumb {
     opacity: 0;
     position: absolute;
 }
-.sec-5 .col-4 p{
+.sec-5 .col-2 p{
 	font-weight: bold;
 	font-size: 1.5rem;
 	text-align: center;
 }
-.sec-5 .col-4 input[type='radio']:checked+p{
+.sec-5 .col-2 input[type='radio']:checked+p{
 	color: #d9152d;
 }
 

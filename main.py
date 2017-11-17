@@ -1,5 +1,6 @@
 import logging
 import rec_eng as re
+import diagnosis as di
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, Response, jsonify
 from werkzeug.exceptions import BadRequest, NotFound, UnsupportedMediaType, Unauthorized
 
@@ -44,9 +45,9 @@ def get_final_criteria():
 def index():
     return render_template('index.html')
 
-@app.route('/recom.html')
-def recom():
-    return render_template('recom.html')
+@app.route('/final-page.html')
+def popup():
+    return render_template('final-page.html')
 
 @app.route('/js/<path:path>')
 def send_js(path):
@@ -120,11 +121,15 @@ def input_driving_hours():
     criterias['Usage'] = usage
 
     if (int(usage) == 1):
-        criterias['Usage'] = 5
+        criterias['Usage'] = 20
     elif (int(usage) == 2):
-        criterias['Usage'] = 15
+        criterias['Usage'] = 31
+    elif (int(usage) == 3):
+        criterias['Usage'] = 42
+    elif (int(usage) == 4):
+        criterias['Usage'] = 54
     else:
-        criterias['Usage'] = 25
+        criterias['Usage'] = 75
 
     return get_json_criteria()
 
@@ -202,5 +207,7 @@ def process_input(test):
 if __name__ == '__main__':
     recommendation = process_input(criterias)
     print(recommendation)
+    print(di.diagnosis(78,0,1,1,16,10,1,0,1,0))
+    # ages,behavior,location,purpose,parking,usage,tire,windshield,painting,keyloss
     app.run(host='127.0.0.1', port=8080)
 
