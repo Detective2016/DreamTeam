@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 
-from collections import Counter
-
 from scipy.spatial.distance import cdist
 
 import pickle
@@ -11,19 +9,74 @@ anclr_products = ['Keyloss', 'Paint', 'Tires', 'Windshield']
 
 
 def state_region(state):
+    us_state_abbrev = {
+        'Alabama': 'AL',
+        'Alaska': 'AK',
+        'Arizona': 'AZ',
+        'Arkansas': 'AR',
+        'California': 'CA',
+        'Colorado': 'CO',
+        'Connecticut': 'CT',
+        'Delaware': 'DE',
+        'Florida': 'FL',
+        'Georgia': 'GA',
+        'Hawaii': 'HI',
+        'Idaho': 'ID',
+        'Illinois': 'IL',
+        'Indiana': 'IN',
+        'Iowa': 'IA',
+        'Kansas': 'KS',
+        'Kentucky': 'KY',
+        'Louisiana': 'LA',
+        'Maine': 'ME',
+        'Maryland': 'MD',
+        'Massachusetts': 'MA',
+        'Michigan': 'MI',
+        'Minnesota': 'MN',
+        'Mississippi': 'MS',
+        'Missouri': 'MO',
+        'Montana': 'MT',
+        'Nebraska': 'NE',
+        'Nevada': 'NV',
+        'New Hampshire': 'NH',
+        'New Jersey': 'NJ',
+        'New Mexico': 'NM',
+        'New York': 'NY',
+        'North Carolina': 'NC',
+        'North Dakota': 'ND',
+        'Ohio': 'OH',
+        'Oklahoma': 'OK',
+        'Oregon': 'OR',
+        'Pennsylvania': 'PA',
+        'Rhode Island': 'RI',
+        'South Carolina': 'SC',
+        'South Dakota': 'SD',
+        'Tennessee': 'TN',
+        'Texas': 'TX',
+        'Utah': 'UT',
+        'Vermont': 'VT',
+        'Virginia': 'VA',
+        'Washington': 'WA',
+        'West Virginia': 'WV',
+        'Wisconsin': 'WI',
+        'Wyoming': 'WY',
+    }
+
+    state = us_state_abbrev[state]
+
     if state in ["MA", "NY", "CT", "NJ", "NH",
-             "PA", "RI", "VT", "ME"]:
+                 "PA", "RI", "VT", "ME"]:
         return "NE"
     elif state in ["AK", "WY", "CA", "WA", "CO",
-               "HI", "OR", "UT", "NV", "NM",
-               "MT", "AZ", "ID"]:
+                   "HI", "OR", "UT", "NV", "NM",
+                   "MT", "AZ", "ID"]:
         return "W"
     elif state in ["DE", "MD", "TX", "VA", "GA", "OK",
-              "NC", "LA", "TN", "FL", "KY", "AL",
-              "SC", "AR", "WV", "MS"]:
+                   "NC", "LA", "TN", "FL", "KY", "AL",
+                   "SC", "AR", "WV", "MS"]:
         return "S"
     elif state in ["ND", "IL", "MN", "NE", "IA", "SD",
-              "OH", "WI", "KS", "IN", "MI", "MO"]:
+                   "OH", "WI", "KS", "IN", "MI", "MO"]:
         return "MW"
 
 
@@ -46,8 +99,7 @@ def read_data():
     return data, X, y_values
 
 
-# Find users like you (sometimes fails due to the lack of similar users)
-# Do not run
+# Find users like you
 def get_similar_users(test_sample):
     data, X, y_values = read_data()
 
@@ -111,7 +163,54 @@ def encode_test(test_sample):
             test_sample[feature] = encoder.transform([test_sample[feature]])[0]
 
 
-def get_rec(test_sample):
+def transform_input(test_sample):
     test_sample["Location"] = state_region(test_sample["Location"])
+
+    dic_driving = {
+        1: "Passive",
+        2: "Neutral",
+        3: "Aggressive"
+    }
+
+    test_sample["Behavior"] = dic_driving[test_sample["Behavior"]]
+
+    dic_parking = {
+        1: "Parkinglot",
+        2: "Parkinglot_r",
+        3: "Garage"
+    }
+
+    test_sample["Parking Space"] = dic_parking[test_sample["Parking Space"]]
+
     encode_test(test_sample)
+
+    return test_sample
+
+
+def get_rec(test_sample):
+    test_sample = transform_input(test_sample)
     return get_recommendations(test_sample)
+
+#
+# # Examlple with states
+# samples = []
+# for i in range(10):
+#     samples.append({"Age": np.random.randint(16, 80),
+#                   "Behavior": np.random.choice([1, 2, 3]),
+#                   "Location": np.random.choice(['Maryland', 'Virginia', 'West Virginia']),
+#                   "Parking Space": np.random.choice([1, 2, 3]),
+#                   "Purpose": np.random.choice(["Racing", "Leisure", "Working", "Commuting", "Traveling"]),
+#                   "Usage": np.random.randint(5, 30)})
+#
+# # Recommend 2 most probable products
+# # Similar user is 0 until we find a similar user
+# for sample in samples:
+#     print(get_rec(sample))
+
+# Call get_rec with such format
+#test_sample = {"Age": 24, # (16 - 99)
+#               "Behavior": "Aggressive", # (Passive - Neutral - Aggressive)
+ #              "Location": "W", #(W, MW, NE, S)
+  #             "Parking Space": "Garage|Parkinglot/R|Street", # (Garage, Parkinglot, Parkinglot/R, Street)
+   #            "Purpose": "Commuting", # (Racing, Leisure, Working, Commuting, Traveling)
+    #           "Usage": 15} # (1 - 30)
