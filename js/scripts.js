@@ -348,7 +348,7 @@ $(document).ready(function() {
                 alert(opPaint)
                 alert(opWind)
                 alert(opTires)*/
-                $('#details').html(details[0]);
+                $('#details').html(details);
                 if (opKey != enable) {
                     $("div#optionKeyloss").hide();
                 }

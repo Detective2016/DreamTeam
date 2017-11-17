@@ -177,6 +177,7 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
         result.append("BMW Key Protection Services would save you upto $700 per year.")
     if pain == 1:
         result.append("BMW Paintless Dent Repair Services would save you about $500 per year.")
+    result = "\n".join(result)
     return result
 #diagnosis(78,0,1,1,16,10,1,0,1,0)
 # ages,behavior,location,purpose,parking,usage,tire,windshield,painting,keyloss
