@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="686px" viewBox="0 0 1024 686" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>2-1@4x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="76" height="42" rx="4"></rect>
+        <filter x="-8.6%" y="-13.1%" width="117.1%" height="131.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.121376812 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect x="12" y="16" width="20" height="20" id="rect-3"></rect>
+        <rect x="31" y="9" width="13" height="20" id="rect-4"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2-1">
+            <rect id="Rectangle-8" fill="#FBFBFB" x="0" y="55" width="1024" height="631"></rect>
+            <text id="How-many-hours-do-yo" font-family="OpenSans-Semibold, Open Sans" font-size="32" font-weight="500" line-spacing="44" letter-spacing="-0.941176474" fill="#4A4A4A">
+                <tspan x="282" y="217">How many hours </tspan>
+                <tspan x="282" y="261">do you usually drive per week?</tspan>
+                <tspan x="282" y="305"> </tspan>
+            </text>
+            <text id="16+-hours" font-family="OpenSans-Semibold, Open Sans" font-size="32" font-weight="500" line-spacing="37" letter-spacing="-0.941176474" fill="#B8B6B8">
+                <tspan x="661.748162" y="405"> 16+</tspan>
+                <tspan x="649" y="442">hours</tspan>
+                <tspan x="691.420496" y="479"> </tspan>
+            </text>
+            <text id="7--15-hours" font-family="OpenSans-Semibold, Open Sans" font-size="32" font-weight="500" line-spacing="37" letter-spacing="-0.941176474" fill="#DA142C">
+                <tspan x="461.070312" y="405">7 -15 </tspan>
+                <tspan x="453" y="442">hours</tspan>
+                <tspan x="495.420496" y="479"> </tspan>
+            </text>
+            <g id="Group-4" transform="translate(895.000000, 584.000000)">
+                <g id="156-Witch-Dance" transform="translate(38.000000, 21.000000) scale(-1, 1) translate(-38.000000, -21.000000) ">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <text id="Next" font-family="OpenSans-Semibold, Open Sans" font-size="14" font-weight="500" letter-spacing="-0.411764741" fill="#000000">
+                    <tspan x="22.8411076" y="26">Next</tspan>
+                </text>
+            </g>
+            <g id="Group-2">
+                <rect id="Rectangle-7" fill="#FFFFFF" x="0" y="0" width="1024" height="57"></rect>
+                <g id="1269045-200">
+                    <image x="12" y="16" width="20" height="20" xlink:href="data:image/png;base64,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"></image>
+                    <use fill="#000000" fill-rule="evenodd" xlink:href="#rect-3"></use>
+                </g>
+                <path d="M44,56.5 L44,0.5" id="Path-3" stroke="#EDEDEE" stroke-width="0.7"></path>
+                <polyline id="Path-5" stroke="#EDEDEE" stroke-width="0.7" points="163 0.28125 183 28.4684661 163 57.28125"></polyline>
+                <text id="740i-xDrive-Sedan" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#000000">
+                    <tspan x="62.0166016" y="30">740i xDrive Sedan</tspan>
+                    <tspan x="110.5" y="47"> </tspan>
+                </text>
+                <text id="Color" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#000000">
+                    <tspan x="214.489775" y="31">Color</tspan>
+                    <tspan x="229" y="48"> </tspan>
+                </text>
+                <text id="Wheels" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="311.21047" y="31">Wheels</tspan>
+                    <tspan x="331.142857" y="48"> </tspan>
+                </text>
+                <text id="Upholstery" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="403.172491" y="31">Upholstery</tspan>
+                    <tspan x="433.285714" y="48"> </tspan>
+                </text>
+                <text id="Trims" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="520.297253" y="31">Trims</tspan>
+                    <tspan x="535.428571" y="48"> </tspan>
+                </text>
+                <text id="Packages" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="612.214639" y="31">Packages</tspan>
+                    <tspan x="637.571429" y="48"> </tspan>
+                </text>
+                <text id="Options" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="718.062861" y="31">Options</tspan>
+                    <tspan x="739.714286" y="48"> </tspan>
+                </text>
+                <text id="BMW-Care" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="813.330431" y="31">BMW Care</tspan>
+                    <tspan x="841.857143" y="48"> </tspan>
+                </text>
+                <text id="Summary" font-family="OpenSans-Semibold, Open Sans" font-size="12" font-weight="500" letter-spacing="-0.352941185" fill="#9B9B9B">
+                    <tspan x="917.371036" y="31">Summary</tspan>
+                    <tspan x="944" y="48"> </tspan>
+                </text>
+                <path d="M805,56 L874.425781,56" id="Path-9" stroke="#061C83" stroke-width="2"></path>
+            </g>
+            <g id="Group" transform="translate(282.000000, 371.000000)">
+                <text id="6-hours" font-family="OpenSans-Semibold, Open Sans" font-size="32" font-weight="500" line-spacing="37" letter-spacing="-0.941176474" fill="#B8B6B8">
+                    <tspan x="26.3869485" y="34">  6 </tspan>
+                    <tspan x="0" y="71">hours</tspan>
+                    <tspan x="42.4204963" y="108"> </tspan>
+                </text>
+                <g id="763757-200">
+                    <image x="31" y="9" width="13" height="20" xlink:href="data:image/png;base64,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"></image>
+                    <use fill="#B8B6B8" fill-rule="evenodd" xlink:href="#rect-4"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

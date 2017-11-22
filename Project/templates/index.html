@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMWCare Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="recom">
+	<header>
+		<ul class="nav nav-pills nav-justified">
+			<li class="nav-item">
+			    <a class="nav-link" href="#!"><img src="images/cancel.svg" alt=""></a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link bold" href="#!">740i xDrive Sedan</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link bold" href="#!">Color</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link" href="#!">Wheels</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link" href="#!">Upholstery</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link" href="#!">Trims</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link" href="#!">Packages</a>
+			</li>
+			<li class="nav-item active">
+			    <a class="nav-link" href="#!">BMW Care</a>
+			</li>
+			<li class="nav-item">
+			    <a class="nav-link" href="#!">Summary</a>
+			</li>
+		</ul>
+	</header>
+	<main>
+		<div class="container-fluid sec-1">
+			<div class="row justify-content-center">
+				<div class="col-6" id="alert">
+					<h1>Welcome to BMW Care.</h1>
+                    <p>Select your state below: <b class="location"></b></p>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-7">
+					<div id="map"></div>
+				</div>
+				<div class="col-8">
+					<button class="next" id="n-1">Next</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid sec-2 display-n">
+			<div class="row justify-content-center">
+				<div class="col-6 heading">
+					<p>How would you</p>
+					<p>describe your driving style?</p>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-7">
+					 <input type="range" min="0" max="100" value="10" id="driving_style"/>
+				</div>
+				<div class="col-8">
+					<div class="row">
+						<div class="col-4">
+							<p>Conservative</p>
+						</div>
+						<div class="col-4">
+							<p>Spirited</p>
+						</div>
+						<div class="col-4">
+							<p>Aggressive</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-8">
+					<button class="next" id="n-2">Next</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid sec-3 display-n">
+			<div class="row justify-content-center">
+				<div class="col-6 heading">
+					<p>How many hours</p>
+					<p>do you tend to drive per week?</p>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-6">
+                    <form id="FormHours">
+					<div class="row">
+						<div class="col-4">
+							<input type="radio" name="hours" value="1">
+							<p><6<br>hours</p>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="hours" value="2" checked="checked">
+							<p>7-15<br>hours</p>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="hours" value="3">
+							<p>16+<br>hours</p>
+						</div>
+					</div>
+                    </form>
+				</div>
+				<div class="col-8">
+					<button class="next" id="n-3">Next</button>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid sec-4 display-n">
+			<div class="row justify-content-center">
+				<div class="col-6 heading">
+					<p>Where do you park your car?</p>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-6">
+                    <form id="FormParking">
+					<div class="row align-items-end">
+						<div class="col-4">
+							<input type="radio" name="parking" value="1">
+							<img class="svg" id="park_1" src="images/public_parking_lot.png" alt="">
+							<p>Public Parking Lot</p>
+					</div>
+						<div class="col-4">
+							<input type="radio" name="parking" value="2" checked="checked">
+							<img class="svg" id="park_2" src="images/Parkin_building_over.png" alt="">
+							<p>Parking Building</p>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="parking" value="3">
+							<img class="svg" id="park_3" src="images/Private_parking.png" alt="">
+							<p>Private Garage</p>
+						</div>
+					</div>
+                    </form>
+				</div>
+				<div class="col-8">
+					<button class="next" id="n-4">Next</button>
+				</div>
+			</div>
+		</div>
+        <div class="container-fluid sec-5 display-n">
+            <div class="row justify-content-center">
+                <div class="col-6 heading">
+                    <p>What is your age?</p>
+                    <!-- <p>do you tend to drive per week?</p> -->
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <form id="FormAge">
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="radio" name="age" value="1">
+                                <p>16 - 25<br>years<br>old</p>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" name="age" value="2">
+                                <p>26 - 36<br>years<br>old</p>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" name="age" value="3" checked="checked">
+                                <p>37 - 47<br>years<br>old</p>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" name="age" value="4">
+                                <p>48 - 60<br>years<br>old</p>
+                            </div>
+                            <div class="col-2">
+                                <input type="radio" name="age" value="5">
+                                <p>60+<br>years<br>old</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-8">
+                    <button class="next" id="n-5">Next</button>
+                </div>
+            </div>
+        </div>
+		<div class="container-fluid sec-6 display-n">
+			<div class="row justify-content-center">
+				<div class="col-6 heading">
+					<p>What is your primary car use?</p>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-8">
+                    <form id="FormUsage">
+					<div class="row justify-content-center align-items-end">
+						<div class="col-2">
+							<input type="radio" name="car" value="1">
+							<img class="img-f" id="car-1" src="images/traveling.png" alt="">
+							<p>Traveling</p>
+						</div>
+						<div class="col-2">
+							<input type="radio" name="car" value="2">
+							<img class="img-f" id="car-2" src="images/working.png" alt="">
+							<p>Working</p>
+						</div>
+						<div class="col-2">
+							<input type="radio" name="car" value="3" checked="checked">
+							<img class="img-f" id="car-3" src="images/commuting_over.png" alt="">
+							<p>Commuting</p>
+						</div>
+						<div class="col-2">
+							<input type="radio" name="car" value="4">
+							<img class="img-f" id="car-4" src="images/racing.png" alt="">
+							<p>Racing</p>
+						</div>
+						<div class="col-2">
+							<input type="radio" name="car" value="5">
+							<img class="img-f" id="car-5" src="images/leisure.png" alt="">
+							<p>Leisure</p>
+						</div>
+					</div>
+                    </form>
+				</div>
+				<div class="col-8">
+					<button class="next" id="n-6">Next</button>
+				</div>
+			</div>
+		</div>
+        <div class="container-fluid sec-7 display-n">
+        <input type="checkbox" id="arrow-n" name="arrow-n">
+        <section class="re-1 container">
+            <div class="row align-items-center">
+                <div class="col-11">
+                    <p>Why did I get this recommendation?</p>
+                </div>
+                <div class="col-1">
+                    <label for="arrow-n"><img id="detail_click" class="img-fluid" src="images/1208637-200.png" alt=""></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p id="details">New York has 45% As you drive car 7-15 hours per week, it increses</p>
+                </div>
+            </div>
+        </section>
+        <section class="container re-2">
+            <div class="row">
+                <div class="col-6 col-fa">
+                    <p>Your recommended BMW protection products:</p>
+                    <div class="row justify-content-center">
+                        <div class="col-5">
+                            <div class="h-content" id="optionTires">
+                                <div class="content" style="background-image: url(images/Tireandwheel.png);">
+                                    <div class="img-cont">
+                                        <div class="text-cont">
+                                            <p>Tire & Wheel protection <br>$16</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fot-content">
+                                    <p>Your BMW's tires and wheels are the only parts of your car that touch the road. Protect them from road hazards seen and unseen such as potholes and debris.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="h-content" id="optionPaint">
+                                <div class="content" style="background-image: url(images/painless.png);">
+                                    <div class="img-cont">
+                                        <div class="text-cont">
+                                            <p>Paintless Dent Repair <br>$20</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fot-content">
+                                    <p>Minor chips and cracks can detract from your BMW's elegant appearance and obstruct your view of the road.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="h-content" id="optionWindshield">
+                                <div class="content" style="background-image: url(images/painless.png);">
+                                    <div class="img-cont">
+                                        <div class="text-cont">
+                                            <p>Windshield Protection <br>$30</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fot-content">
+                                    <p>Windshield can be damaged from extreme weather conditions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="h-content" id="optionKeyloss">
+                                <div class="content" style="background-image: url(images/painless.png);">
+                                    <div class="img-cont">
+                                        <div class="text-cont">
+                                            <p>Key Loss Protection<br>$15</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fot-content">
+                                    <p>When you loss your key you no longer need to worry about the price of getting new one.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-ot">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="content-2">
+                                <p>Similar drivers purchased:</p>
+                                <div id="ad_key" class="img-content-2" style="background-image: url(images/key_protection.png);">
+                                    <div class="text-content-2">
+                                        <p>Add Key Protection $14</p>
+                                    </div>
+                                    <div class="text-content-3">
+                                        <p>Reimbursement towards a replacement key and 24 hours vehicle lock-out assistance</p>
+                                    </div>
+                                </div>
+                                <div id="ad_windshield" class="img-content-2" style="background-image: url(images/key_protection.png);">
+                                    <div class="text-content-2">
+                                        <p>Add Windshield protection $17</p>
+                                    </div>
+                                    <div class="text-content-3">
+                                        <p>Coverage for repair of cracked and broken windshields</p>
+                                    </div>
+                                </div>
+                                <div id="ad_paint" class="img-content-2" style="background-image: url(images/key_protection.png);">
+                                    <div class="text-content-2">
+                                        <p>Add Paint protection $12</p>
+                                    </div>
+                                    <div class="text-content-3">
+                                        <p>Permanently removes dings and minor dents without harming the factory finish on your BMW</p>
+                                    </div>
+                                </div>
+                                <div id="ad_tires" class="img-content-2" style="background-image: url(images/key_protection.png);">
+                                    <div class="text-content-2">
+                                        <p>Add Tires protection $20</p>
+                                    </div>
+                                    <div class="text-content-3">
+                                        <p>Coverage for road hazards such as metal, nails, glass, debris, potholes, blowouts, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="content-2">
+                                <p>More Protection Products</p>
+                                <div class="img-content-2" style="background-image: url(images/key_protection.png);">
+                                    <div class="text-content-2">
+                                        <p>BMW Guaranteed Auto Protection</p>
+                                    </div>
+                                    <div class="text-content-3">
+                                        <p>Protect your investment in the event of an accident rendering your vehicle a total loss</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="save" class="col-2 d-flex justify-content-center align-items-center">
+                            <p><img src="images/share.png" alt="">Save + Share</p>
+                        </div>
+                        <div class="col-10">
+                            <p>Save your recommendation today!<br><span>Bring it in to your nearest BMW dealership.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+	</main>
+	 <script src="us-map-1.0.1/lib/raphael.js"></script>
+	<!-- <script src="scale.raphael.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+	<script src="us-map-1.0.1/example/color.jquery.js"></script>
+	<script src="us-map-1.0.1/jquery.usmap.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
