@@ -6,9 +6,9 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
     if tire == 1:
         if ages > 10:
             if ages <= 25:
-                phrase.append((53, 0, 0, str(72.5833) + "% of people in your age choose BMW Tire & Wheel Services."))
+                phrase.append((53, 0, 0, str(72) + "% of people in your age choose BMW Tire & Wheel Services."))
             elif ages <= 37:
-                phrase.append((48, 0, 0, str(68.8480) + "% of people in your age choose BMW Tire & Wheel Services."))
+                phrase.append((48, 0, 0, str(68) + "% of people in your age choose BMW Tire & Wheel Services."))
 
             elif ages >= 48 & ages <= 60:
 
@@ -19,34 +19,34 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
                 (60, 0, 1, "Considering your driving style, we recommend you to take an extra care on your tires."))
         if beha == 1:
             phrase.append(
-                (46, 0, 0, str(75.594) + "% of dirvers in your driving style choose BMW Tire & Wheel Services."))
+                (46, 0, 0, str(75) + "% of dirvers in your driving style choose BMW Tire & Wheel Services."))
         if beha == 2:
             phrase.append(
-                (41, 0, 0, str(60.828) + "% of drivers in your driving style choose BMW Tire & Wheel Services."))
+                (41, 0, 0, str(60) + "% of drivers in your driving style choose BMW Tire & Wheel Services."))
 
         if loca == 0:
-            phrase.append((46, 0, 0, str(66.189) + "% of people in your region choose BMW Tire & Wheel Services."))
+            phrase.append((46, 0, 0, str(66) + "% of people in your region choose BMW Tire & Wheel Services."))
 
         if loca == 2:
-            phrase.append((39, 0, 0, str(59.211) + "% of drivers in your region choose BMW Tire & Wheel Services."))
+            phrase.append((39, 0, 0, str(59) + "% of drivers in your region choose BMW Tire & Wheel Services."))
         if usag < 17 & usag > 6:
             phrase.append((45, 0, 1, "Drivers that spend similar amounts of time in the car benefited the most from BMW Tire & Wheel Protection Services."))
         if usag > 16:
             phrase.append(
-                (47, 0, 0, "67.565 % of people that spend similar amounts of time in the car choose BMW Tire & Wheel Services."))
+                (47, 0, 0, "67 % of people that spend similar amounts of time in the car choose BMW Tire & Wheel Services."))
         if park in [0, 1, 2, 3, 4, 5, 6]:
             phrase.append((50, 0, 0, str(
-                79.173) + "% of people with similar parking condition choose BMW Tire & Wheel Services."))
+                79) + "% of people with similar parking condition choose BMW Tire & Wheel Services."))
 
         if purp in [1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21, 22, 23]:
             phrase.append(
-                (51, 0, 0, "For drivers with similar primary car usage, 71.990 % of them would choose BMW Tire & Wheel Services."))
+                (51, 0, 0, "For drivers with similar primary car usage, 71 % of them would choose BMW Tire & Wheel Services."))
         elif purp in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]:
             phrase.append(
-                (52, 0, 0, "72.904 % of people who have similar primary car usage would choose BMW Tire & Wheel Services."))
+                (52, 0, 0, "72 % of people who have similar primary car usage would choose BMW Tire & Wheel Services."))
         elif purp in [2, 3, 4, 5, 9, 10, 11, 12, 17, 18, 19, 20, 24, 25, 26, 27]:
             phrase.append(
-                (64, 0, 0, "84.005 % of people who have similar primary car usage would like BMW Tire & Wheel Services."))
+                (64, 0, 0, "84 % of people who have similar primary car usage would like BMW Tire & Wheel Services."))
 
     if wind == 1:
 
@@ -58,33 +58,33 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
                 (40, 1, 1, "From our data in driving behavior, you should take an extra care on your windshield."))
         if beha == 1:
             phrase.append(
-                (40, 1, 0, str(55.012) + "% of drivers in your driving style choose BMW Windshield Protection Services."))
+                (40, 1, 0, str(55) + "% of drivers in your driving style choose BMW Windshield Protection Services."))
         if beha == 2:
             phrase.append(
-                (38, 1, 0, str(53.563) + "% of people in your driving style choose BMW Windshield Protection Services."))
+                (38, 1, 0, str(53) + "% of people in your driving style choose BMW Windshield Protection Services."))
 
         if loca == 2:
             phrase.append(
-                (43, 1, 0, str(58.209) + "% of people in your region choose BMW Windshield Protection Services."))
+                (43, 1, 0, str(58) + "% of people in your region choose BMW Windshield Protection Services."))
 
         if loca == 3:
             phrase.append(
-                (49, 1, 0, str(64.351) + "% of people in your region choose BMW Windshield Protection Services."))
+                (49, 1, 0, str(64) + "% of people in your region choose BMW Windshield Protection Services."))
         if usag < 17 & usag > 6:
             phrase.append((55, 1, 1,
                            "People that spend similar amounts of time in the car benefited the most from BMW Windshield Protection Services."))  #
 
         if park in [3, 5, 6, 9, 11, 12, 13]:
             phrase.append((60, 1, 0, str(
-                75.339) + "% of drivers with your parking condition choose BMW Windshield Protection Services."))
+                75) + "% of drivers with your parking condition choose BMW Windshield Protection Services."))
 
         if park in [2, 4, 8, 10]:
             phrase.append((48, 1, 0, str(
-                63.636) + "% of drivers with your parking condition choose BMW Windshield Protection Services."))  # 38
+                63) + "% of drivers with your parking condition choose BMW Windshield Protection Services."))  # 38
         if tire == 0:
             if purp in [2, 3, 4, 5, 9, 10, 11, 12, 17, 18, 19, 20, 24, 25, 26, 27]:
                 phrase.append((39, 1, 0, str(
-                    53.941) + "% of people with similar primary car usage choose BMW Windshield Protection Services."))
+                    53) + "% of people with similar primary car usage choose BMW Windshield Protection Services."))
     if keyl == 1:
         if ages >= 47:
             phrase.append((68, 2, 1,
@@ -111,44 +111,44 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
         if ages > 10:
             if ages <= 47 & ages >= 37:
                 phrase.append(
-                    (42, 3, 0, str(62.362) + "% of people in your age choose BMW Paintless Dent Repair Services."))
+                    (42, 3, 0, str(62) + "% of people in your age choose BMW Paintless Dent Repair Services."))
             elif ages < 36 & ages > 25:
                 phrase.append(
-                    (47, 3, 0, str(67.173) + "% of people in your age choose BMW Paintless Dent Repair Services."))
+                    (47, 3, 0, str(67) + "% of people in your age choose BMW Paintless Dent Repair Services."))
             elif ages < 25:
                 phrase.append((50, 3, 1,
                                "Comparing to other services, people in your age prefer BMW Paintless Dent Repair Services."))
         if beha == 2:
             phrase.append(
-                (41, 3, 0, str(61.117) + "% of people in your driving style choose BMW Paintless Dent Repair Services."))
+                (41, 3, 0, str(61) + "% of people in your driving style choose BMW Paintless Dent Repair Services."))
 
         if loca == 0:
             phrase.append(
-                (45, 3, 0, str(65.628) + "% of drivers in your region choose BMW Paintless Dent Repair Services."))
+                (45, 3, 0, str(65) + "% of drivers in your region choose BMW Paintless Dent Repair Services."))
 
         if loca == 2:
             phrase.append(
-                (44, 3, 0, str(64.023) + "% of drivers in your region choose BMW Paintless Dent Repair Services."))
+                (44, 3, 0, str(64) + "% of drivers in your region choose BMW Paintless Dent Repair Services."))
 
         if loca == 3:
             phrase.append(
-                (43, 3, 0, str(63.246) + "% of people in your region choose BMW Paintless Dent Repair Services."))
+                (43, 3, 0, str(63) + "% of people in your region choose BMW Paintless Dent Repair Services."))
 
         if usag < 17 & usag > 6:
             phrase.append((43, 3, 0, str(
-                63.063) + "% of people that spend similar amounts of time in the car choose BMW Paintless Dent Repair Services."))
+                63) + "% of people that spend similar amounts of time in the car choose BMW Paintless Dent Repair Services."))
 
         if usag > 16:
             phrase.append((48, 3, 0,
-                           "47.565 % of people who have the similar usage with you, choose our BMW Paintless Dent Repair Services."))
+                           "47 % of people who have the similar usage with you, choose our BMW Paintless Dent Repair Services."))
 
         if park in [3, 5, 6, 9, 11, 12, 13]:
             phrase.append((60, 3, 0, str(
-                80.107) + "% of people with similar parking condition of you choose BMW Paintless Dent Repair Services."))
+                80) + "% of people with similar parking condition of you choose BMW Paintless Dent Repair Services."))
 
         if park in [2, 4, 8, 10]:
             phrase.append((40, 3, 0, str(
-                59.956) + "% of drivers with your parking condition choose BMW Paintless Dent Repair Services."))
+                59) + "% of drivers with your parking condition choose BMW Paintless Dent Repair Services."))
         if tire == 0 & wind == 0 & purp in [1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21, 22, 23]:
             phrase.append((45, 3, 1,
                            "Comparing to our services, people with similar primary car usage prefer BMW Paintless Dent Repair Services."))

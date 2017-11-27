@@ -7,3 +7,5 @@ gunicorn==19.7.1
 flask-bcrypt==0.7.1
 Flask-PyMongo==0.5.1
 scipy==0.19.1
+smtplib==1.5.2
+email==2.2
