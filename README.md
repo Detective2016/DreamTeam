@@ -20,7 +20,7 @@ The plan is to have milestones achieved on bi-weekly basis. This doesn't limit u
 * 11/17
   Final product presentation
   (Sprint 3)
-* 11/20
+* 11/28
   Final presentation
 * 12/14
   Open studio
