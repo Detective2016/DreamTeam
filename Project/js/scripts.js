@@ -387,6 +387,24 @@ $(document).ready(function() {
     $('#save').click(function(){
         window.location.href = "final-page.html";
     })
+    $('#sendEmail').click(function(){
+        var email = $('#inputEmail').val();
+        var data = JSON.stringify({
+          email: `${email}`
+        });
+        $.ajax({
+          url: '/send_email',
+          type: 'POST',
+          headers: {
+             "Content-Type": "application/json"
+          },
+          data: data,
+          success: function(response) {
+             alert('your recommendation result has been successfully send');
+             $("#inputEmail").val('');
+          }
+        })
+    })
 
 });
 window.onload = function() {

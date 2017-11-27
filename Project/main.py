@@ -1,6 +1,7 @@
 import logging
 import rec_eng as re
 import diagnosis as di
+import email_generator as em
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, Response, jsonify
 from werkzeug.exceptions import BadRequest, NotFound, UnsupportedMediaType, Unauthorized
 
@@ -15,6 +16,9 @@ criterias = {"Age": 25,  # (16 - 99)
              "Purpose": "Traveling",  # (0 - 62)
              "Usage": 25}  # (1 - 30)
 
+recommendation = ''
+recommendation_details = ''
+
 def get_json_criteria():
     return jsonify(
         keyloss=recommendation["Keyloss"],
@@ -25,12 +29,10 @@ def get_json_criteria():
 
 def get_final_criteria(recom, recom_details):
     recom['details'] = recom_details
-    print(recom['details'])
-    print(recom['Keyloss'])
-    print(recom['Tires'])
-    print(recom['Windshield'])
-    print(recom['Paint'])
-    print(recom['User'])
+    global recommendation
+    recommendation = recom
+    global recommendation_details
+    recommendation_details = recom_details
     return jsonify(
         keyloss=recom["Keyloss"],
         paint=recom["Paint"],
@@ -188,12 +190,31 @@ def input_car_usage():
         criterias['Purpose'] = 'Racing'
     else:
         criterias['Purpose'] = 'Leisure'
-    print(criterias)
+
     recom = re.get_rec(criterias)
-    print(recom)
     recom_details = di.diagnosis(criterias['Age'],criterias['Behavior'],criterias['Location'],criterias['Purpose'],criterias['Parking Space'],criterias['Usage'],recom['Tires'],recom['Windshield'],recom['Paint'],recom['Keyloss'])
-    print(recom_details)
     return get_final_criteria(recom, recom_details)
+
+@app.route("/send_email", methods=['POST'])
+def send_email():
+    if not request.is_json:
+        raise UnsupportedMediaType()
+
+    body = request.get_json()
+    email = body.get('email')
+    if body.get('email') is None:
+        raise BadRequest('missing email address')
+    print("email address: " + email)
+    em.sendemail(recommendation = recommendation,
+                 recommendation_details = recommendation_details,
+                 from_addr    = 'dreamteambmwfs2017@gmail.com',
+                 to_addr      = email,
+                 subject      = 'Howdy',
+                 message      = 'Howdy from a python function',
+                 login        = 'dreamteambmwfs2017@gmail.com',
+                 password     = 'dreamteamBMWFS')
+
+    return get_json_criteria()
 
 @app.errorhandler(500)
 def server_error(e):
