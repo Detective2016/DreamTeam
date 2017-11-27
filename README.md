@@ -1,5 +1,5 @@
 # DreamTeam
-![Cornell Tech](images/CT_logo1.png)
+![Cornell Tech](Project/images/CT_logo1.png)
 
 Product Studio company challenge at Cornell Tech, Fall 2017
 * How might we make buying ancillary products more personalized for online customers?
