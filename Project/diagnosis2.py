@@ -1,222 +1,214 @@
-import pandas as pd
-import numpy as np
-
-data = pd.read_csv('formated_data.csv')
-data_p = []
-data_w = []
-data_t = []
-data_k = []
-
-for i in range(200000):
-    if data.Paint[i] == 1:
-        data_p.append(
-            [data.Age[i], data.Behavior[i], data.Location[i], data.Purpose[i], data.Usage[i], data["Parking Space"][i]])
-    if data.Keyloss[i] == 1:
-        data_k.append(
-            [data.Age[i], data.Behavior[i], data.Location[i], data.Purpose[i], data.Usage[i], data["Parking Space"][i]])
-    if data.Windshield[i] == 1:
-        data_w.append(
-            [data.Age[i], data.Behavior[i], data.Location[i], data.Purpose[i], data.Usage[i], data["Parking Space"][i]])
-    if data.Tires[i] == 1:
-        data_t.append(
-            [data.Age[i], data.Behavior[i], data.Location[i], data.Purpose[i], data.Usage[i], data["Parking Space"][i]])
-
-age = [0 for i in range(101)]
-beh = [0, 0, 0]
-loc = [0, 0, 0, 0, 0]
-pur = [0 for i in range(63)]
-usa = [0 for i in range(50)]
-par = [0 for i in range(15)]
-for i in range(200000):
-    age[int(data.Age[i])] += 1
-    beh[int(data.Behavior[i])] += 1
-    loc[int(data.Location[i])] += 1
-    pur[int(data.Purpose[i])] += 1
-    usa[int(data.Usage[i])] += 1
-    par[int(data["Parking Space"][i])] += 1
-agep = [0 for i in range(101)]
-behp = [0, 0, 0]
-locp = [0, 0, 0, 0, 0]
-purp = [0 for i in range(63)]
-usap = [0 for i in range(50)]
-parp = [0 for i in range(15)]
-for i in data_p:
-    agep[int(i[0])] += 1
-    behp[int(i[1])] += 1
-    locp[int(i[2])] += 1
-    purp[int(i[3])] += 1
-    usap[int(i[4])] += 1
-    parp[int(i[5])] += 1
-agek = [0 for i in range(101)]
-behk = [0, 0, 0]
-lock = [0, 0, 0, 0, 0]
-purk = [0 for i in range(63)]
-usak = [0 for i in range(50)]
-parkl = [0 for i in range(15)]
-for i in data_k:
-    agek[int(i[0])] += 1
-    behk[int(i[1])] += 1
-    lock[int(i[2])] += 1
-    purk[int(i[3])] += 1
-    usak[int(i[4])] += 1
-    parkl[int(i[5])] += 1
-aget = [0 for i in range(101)]
-beht = [0, 0, 0]
-loct = [0, 0, 0, 0, 0]
-purt = [0 for i in range(63)]
-usat = [0 for i in range(50)]
-part = [0 for i in range(15)]
-for i in data_t:
-    aget[int(i[0])] += 1
-    beht[int(i[1])] += 1
-    loct[int(i[2])] += 1
-    purt[int(i[3])] += 1
-    usat[int(i[4])] += 1
-    part[int(i[5])] += 1
-agew = [0 for i in range(101)]
-behw = [0, 0, 0]
-locw = [0, 0, 0, 0, 0]
-purw = [0 for i in range(63)]
-usaw = [0 for i in range(50)]
-parw = [0 for i in range(15)]
-for i in data_w:
-    agew[int(i[0])] += 1
-    behw[int(i[1])] += 1
-    locw[int(i[2])] += 1
-    purw[int(i[3])] += 1
-    usaw[int(i[4])] += 1
-    parw[int(i[5])] += 1
-agedis = np.zeros((5, 6))
-for i in range(100):
-    if i < 25:
-        agedis[0][0] += age[i]
-        agedis[1][0] += agep[i]
-        agedis[2][0] += agek[i]
-        agedis[3][0] += aget[i]
-        agedis[4][0] += agew[i]
-
-    elif i < 36:
-        agedis[0][1] += age[i]
-        agedis[1][1] += agep[i]
-        agedis[2][1] += agek[i]
-        agedis[3][1] += aget[i]
-        agedis[4][1] += agew[i]
-
-    elif i < 47:
-        agedis[0][2] += age[i]
-        agedis[1][2] += agep[i]
-        agedis[2][2] += agek[i]
-        agedis[3][2] += aget[i]
-        agedis[4][2] += agew[i]
-
-    elif i < 58:
-        agedis[0][3] += age[i]
-        agedis[1][3] += agep[i]
-        agedis[2][3] += agek[i]
-        agedis[3][3] += aget[i]
-        agedis[4][3] += agew[i]
-
-    elif i < 74:
-        agedis[0][4] += age[i]
-        agedis[1][4] += agep[i]
-        agedis[2][4] += agek[i]
-        agedis[3][4] += aget[i]
-        agedis[4][4] += agew[i]
-
-    else:
-        agedis[0][5] += age[i]
-        agedis[1][5] += agep[i]
-        agedis[2][5] += agek[i]
-        agedis[3][5] += aget[i]
-        agedis[4][5] += agew[i]
-parkings = [[0, 1, 2, 3, 4, 5, 6], [3, 5, 6, 9, 11, 12, 13], [1, 4, 5, 7, 10, 11, 12], [2, 3, 4, 8, 9, 10, 11]]
-parkdis = np.zeros((5, 5))
-for i in range(15):
-    if i in parkings[0]:
-        parkdis[0][0] += par[i]
-        parkdis[1][0] += part[i]
-        parkdis[2][0] += parw[i]
-        parkdis[3][0] += parkl[i]
-        parkdis[4][0] += parp[i]
-    if i in parkings[1]:
-        parkdis[0][1] += par[i]
-        parkdis[1][1] += part[i]
-        parkdis[2][1] += parw[i]
-        parkdis[3][1] += parkl[i]
-        parkdis[4][1] += parp[i]
-    if i in parkings[2]:
-        parkdis[0][2] += par[i]
-        parkdis[1][2] += part[i]
-        parkdis[2][2] += parw[i]
-        parkdis[3][2] += parkl[i]
-        parkdis[4][2] += parp[i]
-    if i in parkings[3]:
-        parkdis[0][3] += par[i]
-        parkdis[1][3] += part[i]
-        parkdis[2][3] += parw[i]
-        parkdis[3][3] += parkl[i]
-        parkdis[4][3] += parp[i]
-usagedis = np.zeros((5, 4))
-for i in range(30):
-    if i < 7:
-        usagedis[0][0] += usa[i]
-        usagedis[1][0] += usat[i]
-        usagedis[2][0] += usaw[i]
-        usagedis[3][0] += usak[i]
-        usagedis[4][0] += usap[i]
-    elif i < 16:
-        usagedis[0][1] += usa[i]
-        usagedis[1][1] += usat[i]
-        usagedis[2][1] += usaw[i]
-        usagedis[3][1] += usak[i]
-        usagedis[4][1] += usap[i]
-    else:
-        usagedis[0][2] += usa[i]
-        usagedis[1][2] += usat[i]
-        usagedis[2][2] += usaw[i]
-        usagedis[3][2] += usak[i]
-        usagedis[4][2] += usap[i]
-purposeset = [[2, 3, 4, 5, 9, 10, 11, 12, 17, 18, 19, 20, 24, 25, 26, 27],
-              [1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21, 22, 23],
-              [4, 5, 7, 8, 11, 12, 14, 15, 19, 20, 22, 23, 26, 27, 29, 30],
-              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-              [3, 4, 6, 7, 10, 11, 13, 14, 18, 19, 21, 22, 25, 26, 28, 29]]
-
-purdis = np.zeros((6, 5))
-for i in range(14):
-    if i in purposeset[0]:
-        purdis[0][0] += pur[i]
-        purdis[1][0] += purt[i]
-        purdis[2][0] += purw[i]
-        purdis[3][0] += purk[i]
-        purdis[4][0] += purp[i]
-    if i in purposeset[1]:
-        purdis[0][1] += pur[i]
-        purdis[1][1] += purt[i]
-        purdis[2][1] += purw[i]
-        purdis[3][1] += purk[i]
-        purdis[4][1] += purp[i]
-    if i in purposeset[2]:
-        purdis[0][2] += pur[i]
-        purdis[1][2] += purt[i]
-        purdis[2][2] += purw[i]
-        purdis[3][2] += purk[i]
-        purdis[4][2] += purp[i]
-    if i in purposeset[3]:
-        purdis[0][3] += pur[i]
-        purdis[1][3] += purt[i]
-        purdis[2][3] += purw[i]
-        purdis[3][3] += purk[i]
-        purdis[4][3] += purp[i]
-    if i in purposeset[4]:
-        purdis[0][4] += pur[i]
-        purdis[1][4] += purt[i]
-        purdis[2][4] += purw[i]
-        purdis[3][4] += purk[i]
-        purdis[4][4] += purp[i]
-
-
 def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
+    import pandas as pd
+    import numpy as np
+    data=pd.read_csv('formated_data.csv')
+    data_p=[]
+    data_w=[]
+    data_t=[]
+    data_k=[]
+
+    for i in range(len(data)):
+        if data.Paint[i]==1:
+            data_p.append([data.Age[i],data.Behavior[i],data.Location[i],data.Purpose[i],data.Usage[i],data["Parking Space"][i]])
+        if data.Keyloss[i]==1:
+            data_k.append([data.Age[i],data.Behavior[i],data.Location[i],data.Purpose[i],data.Usage[i],data["Parking Space"][i]])
+        if data.Windshield[i]==1:
+            data_w.append([data.Age[i],data.Behavior[i],data.Location[i],data.Purpose[i],data.Usage[i],data["Parking Space"][i]])
+        if data.Tires[i]==1:
+            data_t.append([data.Age[i],data.Behavior[i],data.Location[i],data.Purpose[i],data.Usage[i],data["Parking Space"][i]])
+
+    age=[0 for i in range (101)]
+    beh=[0,0,0]
+    loc=[0,0,0,0,0]
+    pur=[0 for i in range (63)]
+    usa=[0 for i in range (50)]
+    par=[0 for i in range (15)]
+    for i in range (200000):
+        age[int(data.Age[i])]+=1
+        beh[int(data.Behavior[i])]+=1
+        loc[int(data.Location[i])]+=1
+        pur[int(data.Purpose[i])]+=1
+        usa[int(data.Usage[i])]+=1
+        par[int(data["Parking Space"][i])]+=1
+    agep=[0 for i in range (101)]
+    behp=[0,0,0]
+    locp=[0,0,0,0,0]
+    purp=[0 for i in range (63)]
+    usap=[0 for i in range (50)]
+    parp=[0 for i in range (15)]
+    for i in data_p:
+        agep[int(i[0])]+=1
+        behp[int(i[1])]+=1
+        locp[int(i[2])]+=1
+        purp[int(i[3])]+=1
+        usap[int(i[4])]+=1
+        parp[int(i[5])]+=1
+    agek=[0 for i in range (101)]
+    behk=[0,0,0]
+    lock=[0,0,0,0,0]
+    purk=[0 for i in range (63)]
+    usak=[0 for i in range (50)]
+    parkl=[0 for i in range (15)]
+    for i in data_k:
+        agek[int(i[0])]+=1
+        behk[int(i[1])]+=1
+        lock[int(i[2])]+=1
+        purk[int(i[3])]+=1
+        usak[int(i[4])]+=1
+        parkl[int(i[5])]+=1
+    aget=[0 for i in range (101)]
+    beht=[0,0,0]
+    loct=[0,0,0,0,0]
+    purt=[0 for i in range (63)]
+    usat=[0 for i in range (50)]
+    part=[0 for i in range (15)]
+    for i in data_t:
+        aget[int(i[0])]+=1
+        beht[int(i[1])]+=1
+        loct[int(i[2])]+=1
+        purt[int(i[3])]+=1
+        usat[int(i[4])]+=1
+        part[int(i[5])]+=1
+    agew=[0 for i in range (101)]
+    behw=[0,0,0]
+    locw=[0,0,0,0,0]
+    purw=[0 for i in range (63)]
+    usaw=[0 for i in range (50)]
+    parw=[0 for i in range (15)]
+    for i in data_w:
+        agew[int(i[0])]+=1
+        behw[int(i[1])]+=1
+        locw[int(i[2])]+=1
+        purw[int(i[3])]+=1
+        usaw[int(i[4])]+=1
+        parw[int(i[5])]+=1
+    agedis=np.zeros((5,6))
+    for i in range (100):
+        if i<25:
+            agedis[0][0]+=age[i]
+            agedis[1][0]+=agep[i]
+            agedis[2][0]+=agek[i]
+            agedis[3][0]+=aget[i]
+            agedis[4][0]+=agew[i]
+
+        elif i<36:
+            agedis[0][1]+=age[i]
+            agedis[1][1]+=agep[i]
+            agedis[2][1]+=agek[i]
+            agedis[3][1]+=aget[i]
+            agedis[4][1]+=agew[i]
+
+        elif i<47:
+            agedis[0][2]+=age[i]
+            agedis[1][2]+=agep[i]
+            agedis[2][2]+=agek[i]
+            agedis[3][2]+=aget[i]
+            agedis[4][2]+=agew[i]
+
+        elif i<58:
+            agedis[0][3]+=age[i]
+            agedis[1][3]+=agep[i]
+            agedis[2][3]+=agek[i]
+            agedis[3][3]+=aget[i]
+            agedis[4][3]+=agew[i]
+
+        elif i<74:
+            agedis[0][4]+=age[i]
+            agedis[1][4]+=agep[i]
+            agedis[2][4]+=agek[i]
+            agedis[3][4]+=aget[i]
+            agedis[4][4]+=agew[i]
+
+        else:
+            agedis[0][5]+=age[i]
+            agedis[1][5]+=agep[i]
+            agedis[2][5]+=agek[i]
+            agedis[3][5]+=aget[i]
+            agedis[4][5]+=agew[i]
+    parkings=[[0, 1, 2, 3, 4, 5, 6], [3, 5, 6, 9, 11, 12, 13], [1, 4, 5, 7, 10, 11, 12],[2,3,4,8,9,10,11]]
+    parkdis=np.zeros((5,5))
+    for i in range (15):
+        if i in parkings[0]:
+            parkdis[0][0]+=par[i]
+            parkdis[1][0]+=part[i]
+            parkdis[2][0]+=parw[i]
+            parkdis[3][0]+=parkl[i]
+            parkdis[4][0]+=parp[i]
+        if i in parkings[1]:
+            parkdis[0][1]+=par[i]
+            parkdis[1][1]+=part[i]
+            parkdis[2][1]+=parw[i]
+            parkdis[3][1]+=parkl[i]
+            parkdis[4][1]+=parp[i]
+        if i in parkings[2]:
+            parkdis[0][2]+=par[i]
+            parkdis[1][2]+=part[i]
+            parkdis[2][2]+=parw[i]
+            parkdis[3][2]+=parkl[i]
+            parkdis[4][2]+=parp[i]
+        if i in parkings[3]:
+            parkdis[0][3]+=par[i]
+            parkdis[1][3]+=part[i]
+            parkdis[2][3]+=parw[i]
+            parkdis[3][3]+=parkl[i]
+            parkdis[4][3]+=parp[i]
+    usagedis=np.zeros((5,4))
+    for i in range (30):
+        if i<7:
+            usagedis[0][0]+=usa[i]
+            usagedis[1][0]+=usat[i]
+            usagedis[2][0]+=usaw[i]
+            usagedis[3][0]+=usak[i]
+            usagedis[4][0]+=usap[i]
+        elif i<16:
+            usagedis[0][1]+=usa[i]
+            usagedis[1][1]+=usat[i]
+            usagedis[2][1]+=usaw[i]
+            usagedis[3][1]+=usak[i]
+            usagedis[4][1]+=usap[i]
+        else:
+            usagedis[0][2]+=usa[i]
+            usagedis[1][2]+=usat[i]
+            usagedis[2][2]+=usaw[i]
+            usagedis[3][2]+=usak[i]
+            usagedis[4][2]+=usap[i]
+    purposeset=[[2, 3, 4, 5, 9, 10, 11, 12, 17, 18, 19, 20, 24, 25, 26, 27],[1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21, 22, 23],[4, 5, 7, 8, 11, 12, 14, 15, 19, 20, 22, 23, 26, 27, 29, 30],[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],[3, 4, 6, 7, 10, 11, 13, 14, 18, 19, 21, 22, 25, 26, 28, 29]]
+
+    purdis=np.zeros((6,5))
+    for i in range (14):
+        if i in purposeset[0]:
+            purdis[0][0]+=pur[i]
+            purdis[1][0]+=purt[i]
+            purdis[2][0]+=purw[i]
+            purdis[3][0]+=purk[i]
+            purdis[4][0]+=purp[i]
+        if i in purposeset[1]:
+            purdis[0][1]+=pur[i]
+            purdis[1][1]+=purt[i]
+            purdis[2][1]+=purw[i]
+            purdis[3][1]+=purk[i]
+            purdis[4][1]+=purp[i]
+        if i in purposeset[2]:
+            purdis[0][2]+=pur[i]
+            purdis[1][2]+=purt[i]
+            purdis[2][2]+=purw[i]
+            purdis[3][2]+=purk[i]
+            purdis[4][2]+=purp[i]
+        if i in purposeset[3]:
+            purdis[0][3]+=pur[i]
+            purdis[1][3]+=purt[i]
+            purdis[2][3]+=purw[i]
+            purdis[3][3]+=purk[i]
+            purdis[4][3]+=purp[i]
+        if i in purposeset[4]:
+            purdis[0][4]+=pur[i]
+            purdis[1][4]+=purt[i]
+            purdis[2][4]+=purw[i]
+            purdis[3][4]+=purk[i]
+            purdis[4][4]+=purp[i]
+
+
+
     phrase = []
     saveset = []
     saveset1 = []
@@ -365,8 +357,9 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
 
         if park in [2, 4, 8, 10]:
             phrase.append((int((parp[1]*100)/par[0]), 3, 0, str(int((parp[1])/par[0])) + "% of drivers with your parking condition choose BMW Paintless Dent Repair Services."))
-        if tire == 0 & wind == 0 & purp in [1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21, 22, 23]:
-            phrase.append((45, 3, 1,
+        if tire == 0 & wind == 0:
+            if purp in [1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 18, 19, 20, 21, 22, 23]:
+                phrase.append((45, 3, 1,
                            "Comparing to our services, people with similar primary car usage prefer BMW Paintless Dent Repair Services."))
     import heapq
     phrase = heapq.nlargest(len(phrase), phrase)
@@ -393,7 +386,7 @@ def diagnosis(ages, beha, loca, purp, park, usag, tire, wind, pain, keyl):
         result.append("BMW Key Protection Services would save you upto $700 per year.")
     if pain == 1:
         result.append("BMW Paintless Dent Repair Services would save you about $500 per year.")
-#     result = ["\break".join(result), "\n".join(result)]
+    result = "\n".join(result)
     return result
 print(diagnosis(78,0,1,1,16,10,1,0,1,0))
 # ages,behavior,location,purpose,parking,usage,tire,windshield,painting,keyloss
