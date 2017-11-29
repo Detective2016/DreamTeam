@@ -10,7 +10,7 @@ We are building an online web-app to increase BMW’s protection product engagem
 Roster:
 - name: Andreas Thoma-Baker
   email: at832@cornell.edu
-  picture: 
+  picture: ![Cornell Tech](Project/images/andreas)
 
 ## Development Process: 
 The plan is to have milestones achieved on bi-weekly basis. This doesn't limit us to meeting on specific days during the week as it should be flexible given our busy schedule. However, it would be easy for us to agree upon a specific date prior to the week we have specific milestone due.
