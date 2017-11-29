@@ -10,8 +10,30 @@ We are building an online web-app to increase BMW’s protection product engagem
 Roster:
 - name: Andreas Thoma-Baker
   email: at832@cornell.edu
-  picture: ![Cornell Tech] (DreamTeam/Project/images/andreas.png)
+  picture: 
 
+Roster:
+- name: Yuxue Mei
+  email: ym434@cornell.edu
+  picture: 
+
+Roster:
+- name: Alex Kharchistov
+  email: ok75@cornell.edu
+  picture: 
+
+Roster:
+- name: Haochen Jia 
+  email: hj427@cornell.edu
+  picture: 
+
+Roster: 
+- name: Joungyeun Lee 
+  email: leej970@newschool.edu
+  picture: 
+  
+
+  
 ## Development Process: 
 The plan is to have milestones achieved on bi-weekly basis. This doesn't limit us to meeting on specific days during the week as it should be flexible given our busy schedule. However, it would be easy for us to agree upon a specific date prior to the week we have specific milestone due.
 
