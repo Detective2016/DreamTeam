@@ -10,27 +10,27 @@ We are building an online web-app to increase BMW’s protection product engagem
 Roster:
 - name: Andreas Thoma-Baker
   email: at832@cornell.edu
-  picture: andreas.png
+  [Andreas](Project/images/andreas.png)
 
 Roster:
 - name: Yuxue Mei
   email: ym434@cornell.edu
-  picture: michelle.png
+  [Michelle](Project/images/andreas.png)
 
 Roster:
 - name: Alex Kharchistov
   email: ok75@cornell.edu
-  picture: alex.png
+  [Alex](Project/images/andreas.png)
 
 Roster:
 - name: Haochen Jia 
   email: hj427@cornell.edu
-  picture: jacob.png
+  [Jacob](Project/images/andreas.png)
 
 Roster: 
 - name: Joungyeun Lee 
   email: leej970@newschool.edu
-  picture: jane.png
+  [Joungyeun](Project/images/andreas.png)
   
 
   
